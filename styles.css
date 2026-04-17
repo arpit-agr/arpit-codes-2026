@@ -1,10 +1,179 @@
-@layer reset, theme, compositions, utilities;
+@layer reset, theme, compositions, components, utilities, exceptions;
+
+@layer components {
+	h1,
+	h2 {
+		--font-heading: var(--font-display);
+		text-transform: uppercase;
+	}
+
+	.site-header {
+		position: sticky;
+		inset-block-start: 0;
+		border-block-end: var(--border-width-thin) var(--border-style) var(--border-color);
+		background: var(--body-bg-color);
+		z-index: 1;
+	}
+
+	.site-nav {
+		li {
+			position: relative;
+			padding-block: var(--site-header-padding-block);
+		}
+
+		a {
+			--link-decoration-line: none;
+
+			display: block;
+			font-size: var(--step--1);
+			font-weight: var(--font-weight-medium);
+			letter-spacing: var(--tracking-wide);
+			text-transform: uppercase;
+
+			&:hover {
+				--link-decoration-line: underline;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+			}
+		}
+
+		/*[aria-current]:before {
+			content: "";
+			position: absolute;
+			inset-block-end: 0;
+			inset-inline: 0;
+			background: var(--border-color);
+			block-size: var(--border-width-heavy);
+		}*/
+	}
+
+	#hero {
+		p {
+			align-self: end;
+			font-size: var(--step-1);
+			line-height: var(--leading-snug);
+			text-box: trim-both cap alphabetic;
+			text-wrap: balance;
+
+			b {
+				text-shadow: 0px var(--border-width-hairline) 0px var(--body-bg-color);
+				box-shadow: inset 0rem -0.333lh 0 oklch(from var(--orange) l c h / 0.5);
+			}
+		}
+
+		img {
+			display: inline-block;
+			block-size: 0.7em;
+			inline-size: auto;
+			border: var(--border-width-thin) var(--border-style) var(--border-color);
+		}
+	}
+
+	.project-list-container {
+		--flow-space: var(--space-l);
+		container-type: inline-size;
+		isolation: isolate;
+	}
+
+	.project-list {
+		--grid-item-min: max(40cqi, 16rem);
+		--grid-gap: var(--space-l-xl);
+	}
+
+	.project-card {
+		--stack-gap: var(--space-2xs);
+		position: relative;
+	}
+
+	.project-card-thumbnail {
+		order: -1;
+
+		img {
+			inline-size: 100%;
+		}
+	}
+
+	.project-card-content {
+		--flow-space: var(--space-s);
+
+		h3 {
+			font-size: var(--step-0);
+			font-weight: var(--font-weight-medium);
+		}
+
+		a::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+
+		p {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	#contact {
+		[href^="mailto"] {
+			--link-decoration-line: none;
+			display: inline-block;
+			padding: 0.5em;
+			text-box: trim-both cap alphabetic;
+
+			&:hover {
+				--link-decoration-line: underline;
+			}
+		}
+
+		[aria-labelledby="socials"] {
+			a {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: var(--space-3xs);
+
+				font-size: var(--step--1);
+				letter-spacing: var(--tracking-wide);
+
+				svg {
+					display: inline-block;
+					block-size: 1lh;
+				}
+			}
+		}
+	}
+
+	.site-footer {
+		--region-space: var(--space-s);
+		border-block-start: var(--border-width-thin) var(--border-style) var(--border-color);
+	}
+}
+
+@layer exceptions {
+	.homepage {
+		main {
+			--region-space: var(--space-l-xl);
+			--sidebar-gap: var(--space-s-m);
+			--sidebar-content-min-width: 24rem;
+			--sidebar-wrap-at: 60%;
+
+			> * + * {
+				border-block-start: var(--border-width-thin) var(--border-style)
+					var(--border-color);
+			}
+		}
+	}
+}
 
 @layer theme {
 	@layer base {
 		:root {
 			/* Type scale */
-			/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1280,20,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+			/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1280,20,1.333,7,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 			/* Step -2: 12.5px → 11.2556px */
 			--step--2: clamp(0.7035rem, 0.8072rem + -0.1296vw, 0.7813rem);
@@ -24,10 +193,14 @@
 			--step-5: clamp(2.7994rem, 1.9788rem + 4.1026vw, 5.2609rem);
 			/* Step 6: 53.7477px → 112.2047px */
 			--step-6: clamp(3.3592rem, 2.1414rem + 6.0893vw, 7.0128rem);
+			/* Step 7: 64.4973px → 149.5688px */
+			--step-7: clamp(4.0311rem, 2.2588rem + 8.8616vw, 9.3481rem);
 
 			/* Space scale */
-			/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1280,20,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+			/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1280,20,1.333,6,2,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
+			/* Space 4xs: 2px → 3px */
+			--space-4xs: clamp(0.125rem, 0.1042rem + 0.1042vw, 0.1875rem);
 			/* Space 3xs: 5px → 5px */
 			--space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
 			/* Space 2xs: 9px → 10px */
@@ -48,6 +221,8 @@
 			--space-3xl: clamp(6.75rem, 6.5rem + 1.25vw, 7.5rem);
 
 			/* One-up pairs */
+			/* Space 4xs-3xs: 2px → 5px */
+			--space-4xs-3xs: clamp(0.125rem, 0.0625rem + 0.3125vw, 0.3125rem);
 			/* Space 3xs-2xs: 5px → 10px */
 			--space-3xs-2xs: clamp(0.3125rem, 0.2083rem + 0.5208vw, 0.625rem);
 			/* Space 2xs-xs: 9px → 15px */
@@ -69,11 +244,39 @@
 			/* Space s-l: 18px → 40px */
 			--space-s-l: clamp(1.125rem, 0.6667rem + 2.2917vw, 2.5rem);
 
-			/* color */
-			/* bring your own color tokens */
+			/*
+				Each color group contains:
+				• a ‘primary’ variant
+				• tints – lighter variants of each colour
+				• shades – darker variants of each colour
+			*/
+			--white: #ffffff;
+			--black: #0b0c0c;
+			--black-tint-5: color-mix(in oklab, var(--black), var(--white) 5%);
+			--black-tint-25: color-mix(in oklab, var(--black), var(--white) 25%);
+			--black-tint-50: color-mix(in oklab, var(--black), var(--white) 50%);
+			--black-tint-80: color-mix(in oklab, var(--black), var(--white) 80%);
+			--black-tint-95: color-mix(in oklab, var(--black), var(--white) 95%);
+
+			--red: #ca3535;
+			--green: #0f7a52;
+			--orange: oklch(0.9 0.19 67.28);
+			--yellow: #ffdd00;
+			--yellow-shade-50: color-mix(in oklab, var(--yellow), var(--black) 50%);
+
+			--blue: #1d70b8;
+			--blue-tint-25: color-mix(in oklab, var(--blue), var(--white) 25%);
+			--blue-tint-50: color-mix(in oklab, var(--blue), var(--white) 50%);
+			--blue-tint-80: color-mix(in oklab, var(--blue), var(--white) 80%);
+			--blue-tint-95: color-mix(in oklab, var(--blue), var(--white) 95%);
+			--blue-shade-25: color-mix(in oklab, var(--blue), var(--black) 25%);
+			--blue-shade-50: color-mix(in oklab, var(--blue), var(--black) 50%);
 
 			/* font */
-			--font-sans: ui-sans-serif, system-ui;
+			--font-display:
+				"Jakob Semi-Condensed", "Adjusted Arial Narrow Fallback", system-ui, sans-serif;
+			--font-sans:
+				"Inter", "Adjusted Arial Fallback", ui-sans-serif, system-ui, sans-serif;
 			--font-mono: ui-monospace, monospace;
 			--font-weight-normal: 400;
 			--font-weight-medium: 500;
@@ -87,18 +290,19 @@
 			--tracking-tight: -0.025em;
 			--tracking-normal: 0em;
 			--tracking-wide: 0.025em;
+			--font-smoothing: auto;
 
 			@media (prefers-color-scheme: dark) {
-				--font-weight-normal: 300;
-				--font-weight-medium: 400;
-				--font-weight-semibold: 500;
-				--font-weight-bold: 600;
+				--font-weight-normal: 350;
+				--font-weight-medium: 450;
+				--font-weight-semibold: 550;
+				--font-weight-bold: 650;
 			}
 
 			/* border */
 			--border-width-hairline: 0.5px;
-			--border-width-thin: 1px;
-			--border-width-thick: 2px;
+			--border-width-thin: 1.5px;
+			--border-width-thick: 3px;
 			--border-width-heavy: 4px;
 			--border-style: solid;
 			--radius-none: 0px;
@@ -106,11 +310,6 @@
 			--radius-m: 0.25rem;
 			--radius-l: 0.5rem;
 			--radius-full: 100vmax;
-
-			@media (prefers-color-scheme: dark) {
-				--border-width-thick: 1.5px;
-				--border-width-heavy: 3px;
-			}
 
 			/* motion */
 			--transition-fast: 75ms;
@@ -127,7 +326,8 @@
 
 	@layer semantic {
 		:root {
-			--wrapper-max-width: 55rem;
+			--measure: 60ch;
+			--wrapper-max-width: 80rem;
 			--wrapper-padding-inline: var(--space-s-l);
 			--region-space: var(--space-s-l);
 
@@ -135,42 +335,75 @@
 			--grid-gap: var(--space-s);
 			--repel-gap: var(--space-s);
 			--sidebar-gap: var(--space-s);
-			--stack-gap: var(--space-m);
+			--stack-gap: var(--space-s);
 			--switcher-gap: var(--space-s);
-
-			/*--color-bg: light-dark();
-			--color-text: light-dark();
-			--color-text-focus: light-dark();
-			--color-accent: light-dark();*/
 
 			--font-body: var(--font-sans);
 			--font-heading: var(--font-sans);
 
 			--focus-ring-width: var(--border-width-heavy);
-			/*--focus-ring-style: ;
-			--focus-ring-color: ;
-			--focus-ring-offset: ;*/
+		}
 
+		/* color */
+		:root {
+			/* background */
+			--body-bg-color: light-dark(var(--white), var(--black-tint-5));
+
+			/* text */
+			--text-color: light-dark(var(--black), var(--white));
+			--secondary-text-color: light-dark(var(--black-tint-25), var(--black-tint-80));
+
+			/* brand color */
+			--brand-color: var(--blue);
+
+			/* link */
+			--link-color: var(--text-color);
+			--link-bg-color: var(--body-bg-color);
+			--link-visited-color: var(--text-color);
+			--link-hover-color: var(--text-color);
+			--link-active-color: var(--text-color);
+
+			/* border */
+			--border-color: light-dark(
+				var(--black-tint-25),
+				color-mix(in oklab, var(--black), var(--white) 33%)
+			);
+			--input-border-color: var(--text-color);
+
+			/* focus state */
+			--focus-bg-color: var(--orange);
+			--focus-color: var(--black);
+
+			/* error state */
+			--error-color: var(--red);
+
+			/* success state */
+			--success-color: var(--green);
+
+			/* hover state */
+			--hover-bg-color: light-dark(var(--black-tint-80), var(--black-tint-25));
+
+			/* selected state */
 			/*--color-selection-bg: light-dark();
 			--color-selection-text: light-dark();*/
 		}
 	}
 
 	@layer components {
+		:root {
+			--site-header-padding-block: var(--space-s);
+			--site-header-height: calc(1em + (2 * var(--site-header-padding-block)));
+			--target-margin-block: var(--site-header-height);
+		}
+
 		a,
 		summary {
-			/*--link-color-text: light-dark();
-			--link-color-text-visited: light-dark();
-			--link-color-text-active: light-dark();*/
 			--link-decoration-line: underline;
 			--link-decoration-style: solid;
 			--link-decoration-style-hover: solid;
-			--link-decoration-color: oklch(from currentColor l c h / 0.9);
-			--link-decoration-color-hover: oklch(from currentColor l c h / 0.8);
-			--link-decoration-thickness: max(
-				var(--border-width-thin),
-				(0.0625 * 1rem)
-			);
+			--link-decoration-color: var(--text-color);
+			--link-decoration-color-hover: var(--text-color);
+			--link-decoration-thickness: max(var(--border-width-thin), (0.0625 * 1rem));
 			--link-decoration-thickness-hover: max(
 				var(--border-width-thick),
 				3 * (0.0625 * 1rem),
@@ -189,7 +422,7 @@
 			/*--btn-color-bg: light-dark();
 			--btn-color-bg-hover: light-dark();
 			--btn-color-text: light-dark();*/
-			--btn-border-width: var(--border-width-thick);
+			--btn-border-width: var(--border-width-thin);
 			--btn-border-style: var(--border-style);
 			/*--btn-border-color: light-dark();*/
 			--btn-radius: var(--radius-none);
@@ -221,11 +454,7 @@
 			--code-padding-inline: var(--space-4xs);
 			--code-border-width: var(--border-width-thin);
 			--code-border-style: var(--border-style);
-			--code-border-color: color-mix(
-				in oklch,
-				var(--color-text, currentColor) 5%,
-				#0000
-			);
+			--code-border-color: color-mix(in oklch, var(--text-color, currentColor) 5%, #0000);
 			--code-radius: var(--radius-none);
 			--code-color-bg: color-mix(in oklch, currentColor 5%, transparent);
 			--code-line-height: var(--leading-tight);
@@ -300,6 +529,30 @@
 		position: absolute;
 		width: 1px;
 		white-space: nowrap;
+	}
+
+	.step-2 {
+		font-size: var(--step-2);
+	}
+
+	.step-1 {
+		font-size: var(--step-1);
+	}
+
+	.step-0 {
+		font-size: var(--step-0);
+	}
+
+	.step--1 {
+		font-size: var(--step--1);
+	}
+
+	.step--2 {
+		font-size: var(--step--2);
+	}
+
+	.text-balance {
+		text-wrap: balance;
 	}
 }
 
@@ -430,7 +683,7 @@
 	:has(> .sidebar) > :only-child,
 	:has(> .sidebar) > :nth-child(3) {
 		--error: "Sidebar layouts must include exactly two child elements.";
-		outline: var(--border-style) var(--color-error);
+		outline: var(--border-width-thin, 1px) var(--border-style, solid) var(--error-color);
 	}
 
 	/*
@@ -528,23 +781,48 @@
 		navigation: auto;
 	}
 
+	/*https://daverupert.com/2026/04/inverted-light-dark/*/
+	/* initialize variables */
 	:root {
-		/* base */
-		--yellow: #ffdd00;
-		--yellow-shade-50: #806f00;
-		--red: #ca3535;
+		--theme: light;
+		color-scheme: light dark;
 
-		/* semantic */
-		--color-error: var(--red);
-		--focus-ring-width: 3px;
-		--focus-ring-style: solid;
-		--focus-ring-color: light-dark(var(--yellow), var(--yellow-shade-50));
-		--focus-ring-offset: 0px;
+		@media (prefers-color-scheme: dark) {
+			--theme: dark;
+		}
+	}
+
+	/* the magic: use a variable to control color-scheme */
+	[data-theme] {
+		color-scheme: var(--theme);
+	}
+
+	/* manual light mode */
+	[data-theme="light"] {
+		--theme: light;
+	}
+
+	/* manual dark mode */
+	[data-theme="dark"] {
+		--theme: dark;
+	}
+
+	/* if light theme, inverted set to dark */
+	@container style(--theme: light) {
+		[data-theme="inverted"] {
+			--theme: dark;
+		}
+	}
+
+	/* if dark theme, inverted set tolight */
+	@container style(--theme: dark) {
+		[data-theme="inverted"] {
+			--theme: light;
+		}
 	}
 
 	html {
 		block-size: 100%;
-		color-scheme: light dark;
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
 		text-size-adjust: none;
@@ -558,14 +836,15 @@
 
 	body {
 		min-block-size: 100%;
-		background: var(--color-bg, canvas);
-		color: var(--color-text, canvasText);
+		background: var(--body-bg-color, canvas);
+		color: var(--text-color, canvasText);
 		font-size: var(--step-0, 1rem);
 		font-weight: var(--font-weight-normal);
 		font-family: var(--font-body, system-ui, sans-serif);
+		font-synthesis-weight: none;
 		line-height: var(--leading-normal, 1.5);
 		hanging-punctuation: first last;
-		-webkit-font-smoothing: antialiased;
+		-webkit-font-smoothing: var(--font-smoothing, antialiased);
 		overflow-wrap: break-word;
 	}
 
@@ -746,7 +1025,8 @@
 
 	a,
 	summary {
-		color: var(--link-color-text, LinkText);
+		background: var(--link-bg-color, #0000);
+		color: var(--link-color, LinkText);
 		text-decoration-line: var(--link-decoration-line, underline);
 		text-decoration-style: var(--link-decoration-style, solid);
 		text-decoration-color: var(--link-decoration-color, currentColor);
@@ -754,10 +1034,11 @@
 		text-underline-offset: var(--link-underline-offset, 0.1625em);
 
 		&:visited {
-			color: var(--link-color-text-visited, VisitedText);
+			color: var(--link-visited-color, VisitedText);
 		}
 
 		&:hover {
+			color: var(--link-hover-color, currentColor);
 			text-decoration-style: var(--link-decoration-style-hover, solid);
 			text-decoration-color: var(--link-decoration-color-hover, currentColor);
 			text-decoration-thickness: var(--link-decoration-thickness-hover, 3px);
@@ -765,15 +1046,13 @@
 		}
 
 		&:active {
-			color: var(--link-color-text-active, canvasText);
+			color: var(--link-active-color, canvasText);
 		}
 
 		&:focus-visible {
-			outline-color: #0000;
-			box-shadow: 0 var(--focus-ring-width, 3px)
-				var(--color-text-focus, canvasText);
-			background: var(--focus-ring-color);
-			color: var(--color-text-focus, canvasText);
+			box-shadow: 0 var(--focus-ring-width, 3px) var(--focus-color, canvasText);
+			background: var(--focus-bg-color);
+			color: var(--focus-color, canvasText);
 			text-decoration: none;
 		}
 	}
@@ -796,8 +1075,7 @@
 	textarea,
 	select {
 		&:focus-visible {
-			box-shadow: inset 0 0 0 var(--fc-border-width, 1px)
-				var(--color-text-focus, canvasText);
+			box-shadow: inset 0 0 0 var(--fc-border-width, 1px) var(--focus-color, canvasText);
 		}
 	}
 
@@ -829,7 +1107,7 @@
 		flex-wrap: nowrap;
 
 		&:has(input:hover, label:hover) label::before {
-			box-shadow: 0 0 0 var(--focus-ring-width)
+			box-shadow: 0 0 0 var(--focus-ring-width, 3px)
 				var(--fc-shadow-color, oklch(from currentColor l c h / 0.25));
 		}
 
@@ -874,7 +1152,7 @@
 			inline-size: calc(var(--_fc-radio-size) / 2);
 			block-size: calc(var(--_fc-radio-size) / 2);
 			border-radius: var(--radius-full, 50%);
-			background: var(--color-accent, LinkText);
+			background: var(--brand-color, LinkText);
 			opacity: 0;
 			translate: -50% 0;
 		}
@@ -882,7 +1160,7 @@
 		[type="checkbox"] + label::after {
 			transform: rotate(-45deg);
 			border: solid;
-			border-color: var(--color-accent, LinkText);
+			border-color: var(--brand-color, LinkText);
 			border-block-start-color: #0000;
 			border-inline-end-color: #0000;
 			inset-block-start: 0;
@@ -901,7 +1179,7 @@
 
 		:where([type="radio"], [type="checkbox"]):focus-visible + label::before {
 			border-width: calc(var(--fc-border-width, 1px) + 1px);
-			box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+			box-shadow: 0 0 0 var(--focus-ring-width, 3px) var(--focus-bg-color);
 		}
 	}
 
@@ -909,7 +1187,7 @@
 	input[type="radio"],
 	input[type="range"],
 	progress {
-		accent-color: var(--color-accent, LinkText);
+		accent-color: var(--brand-color, LinkText);
 	}
 
 	input[type="file"] {
@@ -980,16 +1258,12 @@
 
 		&::-webkit-color-swatch {
 			border: none;
-			border-radius: calc(
-				var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3
-			);
+			border-radius: calc(var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3);
 		}
 
 		&::-moz-color-swatch {
 			border: none;
-			border-radius: calc(
-				var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3
-			);
+			border-radius: calc(var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3);
 		}
 	}
 
@@ -1052,7 +1326,7 @@
 		color: var(--btn-color-text, ButtonText);
 		box-shadow: var(
 			--btn-shadow,
-			0 var(--border-width-thick, 1px) 0 var(--color-text, canvasText)
+			0 var(--border-width-thick, 1px) 0 var(--text-color, canvasText)
 		);
 
 		transition-property: background, scale;
@@ -1071,10 +1345,10 @@
 			outline-color: #0000;
 			box-shadow: var(
 				--btn-shadow-focus,
-				0 var(--focus-ring-width, 3px) 0 var(--color-text-focus, canvasText)
+				0 var(--focus-ring-width, 3px) 0 var(--focus-color, canvasText)
 			);
-			background: var(--focus-ring-color);
-			color: var(--color-text-focus, canvasText);
+			background: var(--focus-bg-color);
+			color: var(--focus-color, canvasText);
 		}
 
 		&:disabled {
@@ -1345,8 +1619,8 @@
 	td {
 		padding-block: var(--table-cell-padding-block, 0.25rem);
 		padding-inline: 0 var(--table-cell-padding-inline, 0.5rem);
-		border-block-end: var(--table-border-width, 1px)
-			var(--table-border-style, solid) var(--table-border-color, currentColor);
+		border-block-end: var(--table-border-width, 1px) var(--table-border-style, solid)
+			var(--table-border-color, currentColor);
 		text-align: start;
 		vertical-align: text-top;
 
@@ -1360,10 +1634,10 @@
    ============================================ */
 
 	:focus-visible {
-		outline-width: var(--focus-ring-width);
-		outline-style: var(--focus-ring-style);
-		outline-color: var(--focus-ring-color);
-		outline-offset: var(--focus-ring-offset);
+		outline-width: var(--focus-ring-width, 3px);
+		outline-style: var(--focus-ring-style, solid);
+		outline-color: var(--focus-ring-color, #0000);
+		outline-offset: var(--focus-ring-offset, 0px);
 	}
 
 	::selection {
@@ -1373,7 +1647,7 @@
 	}
 
 	:target {
-		scroll-margin-block: 1lh;
+		scroll-margin-block: var(--target-margin-block, 1lh);
 	}
 
 	/* ============================================
