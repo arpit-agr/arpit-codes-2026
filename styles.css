@@ -148,7 +148,7 @@
 	}
 
 	.site-footer {
-		--region-space: var(--space-s);
+		--region-space: var(--site-header-padding-block);
 		border-block-start: var(--border-width-thin) var(--border-style) var(--border-color);
 	}
 }
