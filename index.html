@@ -78,967 +78,244 @@
 		<link rel="manifest" href="/my.webmanifest" />-->
 	</head>
 
-	<body class="flow region wrapper">
-		<header class="flow">
-			<h1>HTML Kitchen Sink</h1>
-			<p>This is the <code>header</code>.</p>
-		</header>
-		<hr />
-		<main class="flow">
-			<section id="headings" class="flow">
-				<hgroup class="flow">
-					<h2>Heading content</h2>
-					<p>
-						<code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>,
-						<code>h5</code>, <code>h6</code>, <code>hgroup</code> make up the
-						<a href="https://www.w3.org/TR/html5/dom.html#heading-content">
-							heading content</a
-						>
-						category.
-					</p>
-				</hgroup>
-				<div class="stack">
-					<h3>h3 Jaunty zinniasviel</h3>
-					<h4>h4 Five or six big planes</h4>
-					<h5>h5 Expect skilled writers</h5>
-					<h6>h6 Pack my box with five</h6>
-				</div>
-			</section>
-
-			<hr />
-			<section id="sections" class="flow">
-				<header class="flow">
-					<hgroup class="flow">
-						<h2>Sectioning content</h2>
-						<p>
-							Sectioning content is content that defines the scope of
-							<code>header</code> and <code>footer</code> elements.
-							<code>article</code>, <code>aside</code>, <code>nav</code>,
-							<code>section</code> make up the
-							<em>sectioning content</em> category.
-						</p>
-					</hgroup>
-					<nav class="flow">
-						<p>These links are contained in a <code>nav</code> element.</p>
-						<ul>
-							<li><a href="#headings">Heading content</a></li>
-							<li><a href="#sections">Sectioning content</a></li>
-							<li><a href="#phrasing">Phrasing content</a></li>
-							<li>
-								<a href="#palpable">Palpable content</a>
-								<ul>
-									<li><a href="#forms">Forms</a></li>
-									<li><a href="#tables">Tables</a></li>
-								</ul>
-							</li>
-							<li><a href="#embeds">Embedded content</a></li>
-						</ul>
-					</nav>
-				</header>
-				<article class="flow">
-					<h3 class="visually-hidden">Article</h3>
-					<p>
-						This paragraph is nested inside an <code>article</code> element. It
-						contains many different, sometimes useful,
-						<a
-							href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
-							>HTML5 elements</a
-						>. Of course there are classics like <em>emphasis</em>,
-						<strong>strong</strong>, and <small>small</small> but there are many
-						others as well. Hover the following text for abbreviation element:
-						<abbr title="abbreviation">abbr</abbr>. You can define
-						<del>deleted text</del> which often gets replaced with
-						<ins>inserted</ins> text.
-					</p>
-					<p>
-						You can also use <kbd>keyboard text</kbd>, which sometimes is styled
-						similarly to the <code>&lt;code&gt;</code> or
-						<samp>samp</samp> elements. Even more specifically, there is an
-						element just for <var>variables</var>. Not to be mistaken with block
-						quotes below, the quote element lets you denote something as
-						<q>quoted text</q>. Lastly don't forget the sub (H<sub>2</sub>O) and
-						sup (E = MC<sup>2</sup>) elements.
-					</p>
-				</article>
-				<aside>
-					<p>This is contained in an <code>aside</code> element.</p>
-				</aside>
-				<footer>
-					<p>
-						See the
-						<a href="https://www.w3.org/TR/html5/dom.html#sectioning-content"
-							>Sectioning Content spec</a
-						>.
-					</p>
-				</footer>
-			</section>
-
-			<hr />
-			<section id="phrasing" class="flow">
-				<header class="flow">
-					<hgroup class="flow">
-						<h2>Phrasing Content</h2>
-						<p>
-							Phrasing content is the text of the document, as well as elements
-							that mark up that text at the intra-paragraph level. Runs of
-							phrasing content form paragraphs.
-						</p>
-					</hgroup>
-					<p>
-						Elements <code>abbr</code>, <code>b</code>, <code>bdi</code>,
-						<code>bdo</code>, <code>br</code>, <code>cite</code>,
-						<code>code</code>, <code>data</code>, <code>del</code>,
-						<code>dfn</code>, <code>em</code>, <code>i</code>, <code>ins</code>,
-						<code>kbd</code>, <code>mark</code>, <code>meter</code>,
-						<code>progress</code>, <code>q</code>, <code>s</code>,
-						<code>samp</code>, <code>small</code>, <code>span</code>,
-						<code>strong</code>, <code>sub</code>, <code>sup</code>,
-						<code>time</code>, <code>u</code>, <code>var</code>,
-						<code>wbr</code>, and others make up the
-						<em>phrasing content</em> category.
-					</p>
-				</header>
-				<p>
-					<code>abbr</code>: Some vehicles meet the
-					<abbr title="Super Ultra Low Emission Vehicle">SULEV</abbr>
-					standard.<br />
-					<code>br</code> was used to make this sentence start on a new line.
-				</p>
-				<p>
-					<code>bdi</code>: Some languages read right to left,
-					<bdi lang="ar">مرحبا</bdi>. <code>bdo</code>:
-					<bdo dir="rtl">The normal direction has been overridden.</bdo>
-				</p>
-				<p>
-					<code>em</code> is used for <em>emphasis</em> and usually renders as
-					italics, contrast that with <code>i</code> which is used for alternate
-					voice or to offset from the normal (such as a phrase from a different
-					language or taxonomic designation): <i>E. coli</i> can be bad.
-					<code>strong</code> is used for
-					<strong>importance or urgency</strong> and usually renders as bold,
-					contrast that with <code>b</code> which is used to
-					<b>draw attention</b> without the semantic meaning of importance.
-				</p>
-				<p>
-					<code>cite</code>: In the words of <cite>Charles Bukowski</cite> —
-					<q
-						>An intellectual says a simple thing in a hard way. An artist says a
-						hard thing in a simple way.</q
-					>
-				</p>
-				<p>
-					<code>data</code> can be used to specify
-					<data value="2018-09-24T05:00-07:00">5 A.M.</data> that is
-					machine-readable, but <code>time</code> is a better choice for
-					specifying <time datetime="2018-09-24T05:00-07:00">5 A.M.</time> in a
-					machine-readable format. Checkout
-					<a
-						href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-data-element"
-					>
-						&lt;data&gt; element examples in the spec
-					</a>
-				</p>
-				<p>
-					<code>del</code> can be
-					<del datetime="2017-10-11T01:25-07:00">varily</del> used to mark
-					deletions. <code>ins</code> marks
-					<ins datetime="2007-12-19 00:00Z">insertions</ins>. <code>s</code>:
-					similar to <code>del</code>, but used to mark content that is no
-					longer relevant. <s>Windows XP version available.</s> <code>u</code>:
-					a holdover with no real meaning that should be <u>removed</u>.
-					<code>mark</code>: the HTML equivalent of the
-					<mark>yellow highlighter</mark>. <code>span</code>: a
-					<span>generic element</span> with no meaning by itself.
-				</p>
-				<p>
-					<code>dfn</code>: Foreign phrases add a certain
-					<dfn lang="fr" title="French: indefinable quality"
-						>je ne sais quoi</dfn
-					>
-					to one's prose.
-				</p>
-				<p>
-					<code>q</code>: The W3C page <cite>About W3C</cite> says the W3C’s
-					mission is
-					<q cite="https://www.w3.org/Consortium/"
-						>To lead the World Wide Web to its full potential by developing
-						protocols and guidelines that ensure long-term growth for the Web</q
-					>.
-				</p>
-				<p>
-					Check out
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/kbd#examples"
-					>
-						<code>kbd</code> examples on MDN
-					</a>
-				</p>
-				<p>
-					Check out
-					<a
-						href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/samp#examples"
-					>
-						<code>samp</code> examples on MDN
-					</a>
-				</p>
-				<p>
-					<code>var</code>: To log in, type
-					<kbd>ssh <var>user</var>@example.com</kbd>, where <var>user</var> is
-					your user ID.
-				</p>
-				<p>
-					<code>meter</code>
-					<meter value="6" max="8">6 blocks used (out of 8 total)</meter>
-				</p>
-				<p>
-					<code>progress</code> <progress value="37" max="100">37%</progress>
-				</p>
-				<p>
-					<code>sub</code> is used for subscripts: H<sub>2</sub>O.
-					<code>sup</code> is used for superscripts: E = MC<sup>2</sup>.
-					<code>wbr</code>: used to specify where a word may break and it is
-					super<wbr />cali<wbr />fragil<wbr />istic<wbr />expiali<wbr />do<wbr />cious.
-				</p>
-				<p>
-					<code>small</code> is used for side comments and small print: Example
-					Corp today announced record profits for the second quarter
-					<small
-						>(Full Disclosure: Foo News is a subsidiary of Example Corp)</small
-					>, leading to speculation about a third quarter merger with Demo
-					Group.
-				</p>
-				<footer>
-					<p>
-						See the
-						<a href="https://www.w3.org/TR/html5/dom.html#phrasing-content"
-							>Phrasing Content spec</a
-						>.
-					</p>
-				</footer>
-			</section>
-
-			<hr />
-			<section id="palpable" class="flow">
-				<header>
-					<hgroup class="flow">
-						<h2>Palpable Content</h2>
-						<p>
-							Elements <code>a</code>, <code>address</code>,
-							<code>blockquote</code>, <code>button</code>,
-							<code>details</code>, <code>dl</code>, <code>fieldset</code>,
-							<code>figure</code>, <code>form</code>, <code>input</code>,
-							<code>label</code>, <code>map</code>, <code>ol</code>,
-							<code>output</code>, <code>pre</code>, <code>select</code>,
-							<code>table</code>, <code>textarea</code>, <code>ul</code>, and
-							others make up the <em>palpable content</em> category.
-						</p>
-					</hgroup>
-				</header>
-				<p>
-					<a href="http://example.com">Example</a>
-				</p>
-				<address>
-					1 Infinite Loop<br />
-					Cupertino, CA 95014<br />
-					United States
-				</address>
-				<div class="flow">
-					<blockquote>
-						<p>I quickly explained that many big jobs involve few hazards</p>
-					</blockquote>
-					<figure class="flow">
-						<blockquote class="flow">
-							<p>
-								The truth may be puzzling. It may take some work to grapple
-								with. It may be counterintuitive. It may contradict deeply held
-								prejudices. It may not be consonant with what we desperately
-								want to be true. But our preferences do not determine what's
-								true. We have a method, and that method helps us to reach not
-								absolute truth, only asymptotic approaches to the truth — never
-								there, just closer and closer, always finding vast new oceans of
-								undiscovered possibilities. Cleverly designed experiments are
-								the key.
-							</p>
-						</blockquote>
-						<figcaption style="--flow-space: 0.5lh">
-							<p>
-								Carl Sagan, in "<cite>Wonder and Skepticism</cite>", from the
-								<cite>Skeptical Inquirer</cite> Volume 19, Issue 1
-								(January-February 1995)
-							</p>
-						</figcaption>
-					</figure>
-				</div>
-				<details>
-					<summary>
-						<span>Help with nationality</span>
-					</summary>
-					<div>
-						We need to know your nationality so we can work out which elections
-						you’re entitled to vote in. If you cannot provide your nationality,
-						you’ll have to send copies of identity documents through the post.
-					</div>
-				</details>
-				<div>
-					<button command="show-modal" commandfor="my-dialog">
-						Open dialog
-					</button>
-
-					<dialog id="my-dialog" class="flow">
-						<p>This dialog was opened using an invoker command.</p>
-						<button commandfor="my-dialog" command="close">Close</button>
-					</dialog>
-				</div>
-				<dl class="flow">
-					<div>
-						<dt>Definition List Title</dt>
-						<dd>Definition list division.</dd>
-					</div>
-					<div>
-						<dt>Kitchen Sink</dt>
-						<dd>
-							Used in expressions to describe work in which all conceivable (and
-							some inconceivable) sources have been mined. In this case, a bunch
-							of markup.
-						</dd>
-					</div>
-					<div>
-						<dt>aside</dt>
-						<dd>Defines content aside from the page content</dd>
-					</div>
-					<div>
-						<dt>blockquote</dt>
-						<dd>Defines a section that is quoted from another source</dd>
-					</div>
-				</dl>
-
-				<hr />
-				<div class="flow">
-					<h3 id="forms">Forms</h3>
-
-					<form
-						class="flow"
-						style="
-							--flow-space: var(--space-m);
-							--stack-gap: var(--space-2xs);
-							--stack-horizontal-alignment: stretch;
-							max-inline-size: 45ch;
-						"
-					>
-						<div class="stack">
-							<label for="example-input-email">Email address</label>
-							<input
-								type="email"
-								id="example-input-email"
-								placeholder="name@example.com"
-							/>
-						</div>
-						<div class="stack">
-							<label for="example-input-number">Number</label>
-							<input type="number" id="example-input-number" />
-						</div>
-						<div class="stack">
-							<label for="example-input-password">Password</label>
-							<input type="password" id="example-input-password" />
-						</div>
-						<div class="stack">
-							<label for="example-input-search">Search</label>
-							<input type="search" id="example-input-search" />
-						</div>
-						<div class="stack">
-							<label for="example-input-tel">Telephone number</label>
-							<input type="tel" id="example-input-tel" />
-						</div>
-						<div class="stack">
-							<label for="example-input-text">Text</label>
-							<input type="text" id="example-input-text" />
-						</div>
-						<div class="stack">
-							<label for="example-input-url">URL</label>
-							<input type="url" id="example-input-url" />
-						</div>
-						<div class="stack">
-							<label for="example-input-file">File input</label>
-							<input type="file" id="example-input-file" />
-						</div>
-						<div class="stack">
-							<label for="example-input-readonly">Read-only</label>
-							<input
-								type="text"
-								id="example-input-readonly"
-								readonly
-								value="Can't touch this!"
-							/>
-						</div>
-						<div class="stack">
-							<label for="example-input-disabled">Disabled</label>
-							<input
-								type="text"
-								id="example-input-disabled"
-								disabled
-								value="Not available"
-							/>
-						</div>
-						<div class="stack">
-							<label for="example-input-time">Time</label>
-							<input type="time" id="example-input-time" />
-						</div>
-						<div class="stack">
-							<label for="example-input-date">Date</label>
-							<input type="date" id="example-input-date" />
-						</div>
-						<div class="stack">
-							<label for="example-input-date-time">Date / Time</label>
-							<input type="datetime-local" id="example-input-date-time" />
-						</div>
-						<div class="stack">
-							<label for="example-input-date-time-local"
-								>Date / Time local</label
-							>
-							<input type="datetime-local" id="example-input-date-time-local" />
-						</div>
-						<div class="stack">
-							<label for="example-input-month">Month</label>
-							<input type="month" id="example-input-month" />
-						</div>
-						<div class="stack">
-							<label for="example-input-week">Week</label>
-							<input type="week" id="example-input-week" />
-						</div>
-						<div class="stack">
-							<label for="example-input-color">Color</label>
-							<input type="color" id="example-input-color" />
-						</div>
-						<div class="stack">
-							<label for="example-input-range">Range input</label>
-							<input
-								type="range"
-								id="example-input-range"
-								min="1"
-								max="100"
-								value="33"
-							/>
-						</div>
-						<div class="stack">
-							<label for="example-select1">Select</label>
-							<select id="example-select1">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-select1a">Select with size</label>
-							<select id="example-select1a" size="2">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-optgroup">Select with optgroup</label>
-							<select id="example-optgroup">
-								<optgroup label="Swedish Cars">
-									<option>Volvo</option>
-									<option>Saab</option>
-								</optgroup>
-								<optgroup label="German Cars">
-									<option>Mercedes</option>
-									<option>Audi</option>
-								</optgroup>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-select2">Multiple select</label>
-							<select multiple id="example-select2">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-optgroup2"
-								>Select with optgroup and size</label
-							>
-							<select id="example-optgroup2" size="2">
-								<optgroup label="Vegetarian">
-									<option>Green Salad</option>
-									<option>French Fries</option>
-								</optgroup>
-								<optgroup label="Carnivorous">
-									<option>Big Mac</option>
-									<option>Roast Beef</option>
-								</optgroup>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-optgroup3"
-								>Multiple select with optgroup</label
-							>
-							<select id="example-optgroup3" multiple>
-								<optgroup label="Ground">
-									<option>Train</option>
-									<option>Bus</option>
-								</optgroup>
-								<optgroup label="Water">
-									<option>Ship</option>
-									<option>Submarine</option>
-								</optgroup>
-								<optgroup label="Air">
-									<option>Plane</option>
-									<option>Balloon</option>
-								</optgroup>
-							</select>
-						</div>
-						<div class="stack">
-							<label for="example-textarea">Textarea</label>
-							<textarea id="example-textarea"></textarea>
-						</div>
-						<fieldset class="flow" aria-describedby="hint-radio">
-							<legend>Where do you live?</legend>
-							<div
-								id="hint-radio"
-								style="--flow-space: 0.5lh; font-size: var(--step--1)"
-							>
-								Select one option
-							</div>
-							<div style="--flow-space: 0.25lh">
-								<div>
-									<input
-										id="whereDoYouLive"
-										name="whereDoYouLive"
-										type="radio"
-										value="england"
-									/>
-									<label for="whereDoYouLive"> England </label>
-								</div>
-								<div>
-									<input
-										id="whereDoYouLive-2"
-										name="whereDoYouLive"
-										type="radio"
-										value="scotland"
-									/>
-									<label for="whereDoYouLive-2"> Scotland </label>
-								</div>
-								<div>
-									<input
-										id="whereDoYouLive-3"
-										name="whereDoYouLive"
-										type="radio"
-										value="wales"
-									/>
-									<label for="whereDoYouLive-3"> Wales </label>
-								</div>
-								<div>
-									<input
-										id="whereDoYouLive-4"
-										name="whereDoYouLive"
-										type="radio"
-										value="northern-ireland"
-									/>
-									<label for="whereDoYouLive-4"> Northern Ireland </label>
-								</div>
-								<div>or</div>
-								<div>
-									<input
-										id="whereDoYouLive-5"
-										name="whereDoYouLive"
-										type="radio"
-										value="nota"
-									/>
-									<label for="whereDoYouLive-5"> None of the above </label>
-								</div>
-							</div>
-						</fieldset>
-						<fieldset class="flow" aria-describedby="hint-checkbox">
-							<legend style="--flow-space: 0.5lh">
-								Which types of waste do you transport?
-							</legend>
-							<div
-								id="hint-checkbox"
-								style="--flow-space: 0.5lh; font-size: var(--step--1)"
-							>
-								Select all that apply
-							</div>
-							<div style="--flow-space: 0.25lh">
-								<div>
-									<input
-										id="waste"
-										name="waste"
-										type="checkbox"
-										value="carcasses"
-									/>
-									<label for="waste"> Waste from animal carcasses </label>
-								</div>
-								<div>
-									<input
-										id="waste-2"
-										name="waste"
-										type="checkbox"
-										value="mines"
-									/>
-									<label for="waste-2"> Waste from mines or quarries </label>
-								</div>
-								<div>
-									<input
-										id="waste-3"
-										name="waste"
-										type="checkbox"
-										value="farm"
-									/>
-									<label for="waste-3"> Farm or agricultural waste </label>
-								</div>
-							</div>
-						</fieldset>
-						<div class="cluster" style="--cluster-gap: var(--space-xs)">
-							<button type="button" name="button">Button</button>
-							<!--<input type="button" name="input" value="Input Button" />
-						<input type="submit" name="submit" value="Input Submit" />-->
-							<button type="submit" name="submit2">Submit</button>
-							<!--<input type="reset" name="reset" value="Input Reset" />-->
-							<button type="reset" name="reset2">Reset</button>
-							<button disabled>Cancel</button>
-						</div>
-					</form>
-
-					<!--<hr />
-				<p><code>output</code>:</p>
-				<form
-					class="cluster"
-					onsubmit="return false;"
-					oninput="o.value = a.valueAsNumber + b.valueAsNumber"
-				>
-					<input name="a" type="number" step="any" /> +
-					<input name="b" type="number" step="any" /> =
-					<output name="o" for="a b"></output>
-				</form>-->
-				</div>
-
-				<hr />
-				<div class="flow">
-					<ul>
-						<li>
-							Unordered List item one
-							<ul>
-								<li>
-									Nested list item
-									<ul>
-										<li>Level 3, item one</li>
-										<li>Level 3, item two</li>
-										<li>Level 3, item three</li>
-										<li>Level 3, item four</li>
-									</ul>
-								</li>
-								<li>List item two</li>
-								<li>List item three</li>
-								<li>List item four</li>
-							</ul>
-						</li>
-						<li>List item two</li>
-						<li>List item three</li>
-						<li>List item four</li>
+	<body class="homepage">
+		<header class="site-header">
+			<div class="site-header-inner wrapper">
+				<nav class="site-nav">
+					<ul class="cluster" role="list">
+						<li><a href="#top" aria-current="page">Home</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="https://arpit.blog/">Blog</a></li>
+						<li><a href="#contact">Contact</a></li>
 					</ul>
-					<ol>
-						<li>
-							List item one
-							<ol>
-								<li>
-									List item one
-									<ol>
-										<li>List item one</li>
-										<li>List item two</li>
-										<li>List item three</li>
-										<li>List item four</li>
-									</ol>
-								</li>
-								<li>List item two</li>
-								<li>List item three</li>
-								<li>List item four</li>
-							</ol>
-						</li>
-						<li>List item two</li>
-						<li>List item three</li>
-						<li>List item four</li>
-					</ol>
-				</div>
+				</nav>
+			</div>
+		</header>
 
-				<hr />
-
-				<pre><code>pre {
-	display: block;
-	padding: 7px;
-	background-color: #F5F5F5;
-	border: 1px solid #E1E1E8;
-	border-radius: 3px;
-	white-space: pre-wrap;
-	word-break: break-all;
-	font-family: Menlo, Monaco;
-	line-height: 160%;
-}</code></pre>
-				<pre><samp>You are in an open field west of a big white house with a boarded
-front door.
-There is a small mailbox here.
-
-></samp> <kbd>open mailbox</kbd>
-
-<samp>Opening the mailbox reveals:
-A leaflet.
-
-></samp></pre>
-
-				<hr />
-				<div class="flow">
-					<h3 id="tables">Tables</h3>
-					<table>
-						<caption>
-							Dates and amounts
-						</caption>
-						<thead>
-							<tr>
-								<th scope="col">Date</th>
-								<th scope="col">Amount</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">First 6 weeks</th>
-								<td>£109.80 per week</td>
-							</tr>
-							<tr>
-								<th scope="row">Next 33 weeks</th>
-								<td>£109.80 per week</td>
-							</tr>
-							<tr>
-								<th scope="row">Total estimated pay</th>
-								<td>£4,282.20</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<!--<p id="table-summary">
-					In the following table, characteristics are given in the second
-					column, with the negative side in the left column and the positive
-					side in the right column.
-				</p>
-				<div role="region" aria-labelledby="Caption02" tabindex="0">
-					<table>
-						<caption id="Caption02">
-							Characteristics with positive and negative sides
-						</caption>
-						<thead>
-							<tr>
-								<th id="n">Negative</th>
-								<th>Characteristic</th>
-								<th id="p">Positive</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td headers="n r1">Sad</td>
-								<th id="r1">Mood</th>
-								<td headers="p r1">Happy</td>
-							</tr>
-							<tr>
-								<td headers="n r2">Failing</td>
-								<th id="r2">Grade</th>
-								<td headers="p r2">Passing</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div role="region" aria-labelledby="Caption03" tabindex="0">
-					<table>
-						<caption id="Caption03">
-							Complex table with multiple
-							<code>tbody</code>
-							elements and a
-							<code>tfoot</code
-							>.
-						</caption>
-						<thead>
-							<tr>
-								<th></th>
-								<th>2008</th>
-								<th>2007</th>
-								<th>2006</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th>Net sales</th>
-								<td>$32,479</td>
-								<td>$24,006</td>
-								<td>$19,315</td>
-							</tr>
-							<tr>
-								<th>Cost of sales</th>
-								<td>21,334</td>
-								<td>15,852</td>
-								<td>13,717</td>
-							</tr>
-						</tbody>
-						<tbody>
-							<tr>
-								<th>Gross margin</th>
-								<td>$11,145</td>
-								<td>$8,154</td>
-								<td>$5,598</td>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>Gross margin percentage</th>
-								<td>34.3%</td>
-								<td>34.0%</td>
-								<td>29.0%</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>-->
-
-				<footer>
+		<main id="main">
+			<div class="region" id="hero">
+				<div class="wrapper">
+					<h1 class="sidebar">
+						Arpit
+						<img src="/img/arpit.jpg" alt="" width="37" height="37" /> Agrawal
+					</h1>
 					<p>
-						See the
-						<a href="https://www.w3.org/TR/html5/dom.html#palpable-content"
-							>Palpable Content spec</a
-						>.
+						Hi, I'm a <b>web designer-developer</b> based in Mumbai, India. I
+						focus on semantic HTML, modern CSS and accessibility to create
+						interfaces that work everywhere, including in your framework of
+						choice.
 					</p>
-				</footer>
-			</section>
+				</div>
+			</div>
 
-			<hr />
-			<section id="embeds" class="flow">
-				<header>
-					<hgroup class="flow">
-						<h2>Embedded content</h2>
+			<div class="region" id="about">
+				<div class="wrapper">
+					<h2 class="sidebar">About Me</h2>
+					<div class="flow">
 						<p>
-							Elements <code>audio</code>, <code>canvas</code>,
-							<code>embed</code>, <code>iframe</code>, <code>img</code>,
-							<code>math</code>, <code>object</code>, <code>picture</code>,
-							<code>svg</code>, <code>video</code> make up the
-							<em>embedded content</em> category.
+							In 2019, I watched my cousin build a website from scratch. Seeing
+							it take shape in real time felt pretty magical. That was it for
+							me. I left chartered accountancy and taught myself to build for
+							the web.
 						</p>
-					</hgroup>
-				</header>
-
-				<div class="flow">
-					<math xmlns="http://www.w3.org/1998/Math/MathML">
-						<mtable>
-							<mtr>
-								<mtd>
-									<mtext>Quadratic Equation</mtext>
-								</mtd>
-								<mtd>
-									<mrow>
-										<mi>x</mi>
-										<mo>=</mo>
-										<mfrac>
-											<mrow>
-												<mo>-</mo>
-												<mi>b</mi>
-												<mo>&#x00B1;</mo>
-												<msqrt>
-													<mrow>
-														<msubsup>
-															<mi>b</mi>
-															<mrow></mrow>
-															<mn>2</mn>
-														</msubsup>
-														<mo>-</mo>
-														<mn>4</mn>
-														<mi>a</mi>
-														<mi>c</mi>
-													</mrow>
-												</msqrt>
-											</mrow>
-											<mrow>
-												<mn>2</mn>
-												<mi>a</mi>
-											</mrow>
-										</mfrac>
-									</mrow>
-								</mtd>
-							</mtr>
-						</mtable>
-					</math>
+						<p>
+							Since then, I've designed and built websites for clients from the
+							ground up, handling everything from prototyping in the browser to
+							development and deployment. I write CSS that adapts to its context
+							without relying on hardcoded breakpoints or magic numbers. I
+							<a href="https://browsersupport.clearleft.com/"
+								>support every browser and optimise for none</a
+							>, and I test with keyboard navigation and screen readers to make
+							sure what I build actually works for everyone.
+						</p>
+						<p>
+							I want to work alongside developers who care about the end-user
+							experience — building websites that are inclusive and accessible
+							regardless of someone's ability, device, or connection speed.
+							There's always more to learn, and that's the part I look forward
+							to most.
+						</p>
+					</div>
 				</div>
-				<iframe
-					sandbox
-					srcdoc="<h1>Sample Document</h1><p>This
-is a sample content.</p>"
-				></iframe>
-				<img
-					src="/img/grapefruit-slice.jpg"
-					alt="Grapefruit slice atop a pile of other slices"
-					width="332"
-					height="332"
-				/>
+			</div>
 
-				<picture>
-					<source srcset="/img/surfer.jpg" media="(orientation: portrait)" />
-					<img src="/img/painted-hand.jpg" alt="" width="240" height="200" />
-				</picture>
-				<svg
-					role="presentation"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M19.199 24C19.199 13.467
-10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291
-17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301
-3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909
-24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909
-7.184 15.909 15.91z"
-					/>
-				</svg>
-
-				<div class="flow">
-					<audio
-						controls
-						src="https://upload.wikimedia.org/wikipedia/commons/c/c7/What_hath_God_wrought.ogg"
-					></audio>
-					<small>
-						By Cqdx [<a href="https://creativecommons.org/licenses/by-sa/3.0"
-							>CC BY-SA 3.0 </a
-						>],
-						<a
-							href="https://commons.wikimedia.org/wiki/File:What_hath_God_wrought.ogg"
-							>from Wikimedia Commons</a
-						>.
-					</small>
+			<div class="region" id="projects">
+				<div class="wrapper">
+					<h2 class="sidebar">Projects</h2>
+					<div class="flow">
+						<p class="text-balance">
+							Client websites I designed and developed. Each one built with
+							Eleventy, semantic HTML, and modern CSS that works without hacks.
+						</p>
+						<div class="project-list-container">
+							<ul class="project-list grid-auto" role="list">
+								<li class="project-card stack">
+									<div class="project-card-content flow">
+										<h3>
+											<a href="https://ambcohygiene.com/">Ambco Hygiene Care</a>
+										</h3>
+										<p>
+											A searchable product catalog for a professional cleaning
+											tools and accessories company.
+										</p>
+									</div>
+									<div class="project-card-thumbnail">
+										<img
+											src="/img/projects/ambco.png"
+											alt=""
+											width="217"
+											height="170"
+										/>
+									</div>
+								</li>
+								<li class="project-card stack">
+									<div class="project-card-content flow">
+										<h3>
+											<a href="https://cg21.in/">CG21 EXIM</a>
+										</h3>
+										<p>
+											A website for a global raw material sourcing company,
+											featuring an interactive WebGL globe.
+										</p>
+									</div>
+									<div class="project-card-thumbnail">
+										<img
+											src="/img/projects/cg21.png"
+											alt=""
+											width="217"
+											height="170"
+										/>
+									</div>
+								</li>
+								<li class="project-card stack">
+									<div class="project-card-content flow">
+										<h3>
+											<a href="https://slae.app/">SustEarn</a>
+										</h3>
+										<p>
+											A marketing site for a sustainability app, with device
+											mockups I designed from scratch.
+										</p>
+									</div>
+									<div class="project-card-thumbnail">
+										<img
+											src="/img/projects/sustearn.png"
+											alt=""
+											width="217"
+											height="170"
+										/>
+									</div>
+								</li>
+								<li class="project-card stack">
+									<div class="project-card-content flow">
+										<h3>
+											<a href="https://codesquadedu.com/">Code Squad</a>
+										</h3>
+										<p>
+											A learning platform's website with scroll-triggered
+											animations.
+										</p>
+									</div>
+									<div class="project-card-thumbnail">
+										<img
+											src="/img/projects/codesquad.png"
+											alt=""
+											width="217"
+											height="170"
+										/>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
+			</div>
 
-				<video controls src="/img/flower.webm" width="960" height="540"></video>
-				<footer>
-					<p>
-						See the
-						<a href="https://www.w3.org/TR/html5/dom.html#embedded-content">
-							Embedded Content spec </a
-						>.
-					</p>
-				</footer>
-			</section>
+			<div class="region" id="contact">
+				<div class="wrapper">
+					<div>
+						<h2 class="sidebar">Get in touch</h2>
+						<div class="flow">
+							<p>
+								I'm currently looking for frontend development roles in Mumbai
+								or remote. If you're hiring, have a question, or just want to
+								say hello — I'd like to hear from you.
+							</p>
+							<a href="mailto:hello@arpit.codes" data-theme="inverted">
+								hello@arpit.codes
+							</a>
+							<div>
+								<h3 id="socials" class="visually-hidden">Socials</h3>
+								<ul
+									class="step--1 cluster"
+									role="list"
+									aria-labelledby="socials"
+								>
+									<li>
+										<a href="https://bsky.app/profile/arpit.codes">
+											<svg
+												width="1em"
+												height="1em"
+												role="img"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+												aria-hidden="true"
+											>
+												<title>Bluesky</title>
+												<path
+													d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"
+												/>
+											</svg>
+											<span>Bluesky</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://github.com/arpit-agr">
+											<svg
+												width="1em"
+												height="1em"
+												role="img"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<title>GitHub</title>
+												<path
+													d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+												/>
+											</svg>
+											<span>GitHub</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://codepen.io/arpit-codes">
+											<svg
+												width="1em"
+												height="1em"
+												role="img"
+												viewBox="0 0 24 24"
+												aria-hidden="true"
+											>
+												<title>CodePen</title>
+												<path
+													d="M18.144 13.067v-2.134L16.55 12zm1.276 1.194l-.006.083l-.005.028l-.011.053l-.01.031l-.017.047l-.014.03l-.021.043l-.019.03a.6.6 0 0 1-.08.1l-.026.025l-.036.03l-.029.022l-.01.008l-6.782 4.522a.64.64 0 0 1-.708 0L4.864 14.79l-.01-.008l-.065-.052l-.026-.025l-.032-.034l-.021-.028a.6.6 0 0 1-.067-.11l-.014-.031l-.017-.047l-.01-.03l-.01-.054l-.006-.028l-.006-.083V9.739l.006-.083l.005-.027l.011-.054l.01-.03a.6.6 0 0 1 .12-.217l.031-.034l.026-.025l.065-.052l.01-.008l6.782-4.521a.64.64 0 0 1 .708 0l6.782 4.521l.01.008l.03.022l.035.03q.014.012.026.025a.6.6 0 0 1 .08.1l.019.03l.021.043l.014.03q.01.024.017.047l.01.031l.01.054l.006.027l.006.083zM12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12c6.628 0 12-5.372 12-12c0-6.627-5.372-12-12-12m0 10.492L9.745 12L12 13.51L14.255 12zm.638 4.124v2.975l4.996-3.33l-2.232-1.493zm-6.272-.356l4.996 3.33v-2.974l-2.764-1.849zm11.268-4.52l-4.996-3.33v2.974l2.764 1.85zm-6.272-.356V6.41L6.366 9.74l2.232 1.493zm-5.506 1.549v2.134L7.45 12Z"
+												></path>
+											</svg>
+											<span>CodePen</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
-		<hr />
-		<footer class="repel">
-			<small>This section serves as the <code>footer</code>.</small>
-			<small>
-				Adapted from
-				<a href="https://github.com/dbox/html5-kitchen-sink">dbox</a>.
-			</small>
+
+		<footer class="site-footer region">
+			<div class="step--1 repel wrapper">
+				<div>&COPY; 2026 Arpit Agrawal</div>
+				<div>&uarr; <a href="#top">Top</a></div>
+			</div>
 		</footer>
-		<script src="/assets/js/xy-polyfill.js" nomodule></script>
-		<script src="/assets/js/script.js" type="module"></script>
 	</body>
 </html>
