@@ -274,7 +274,7 @@
 				display: inline-block;
 				block-size: 0.7em;
 				inline-size: auto;
-				border: var(--border-width-thin) var(--border-style) var(--border-color);
+				border: var(--border-width-thin) var(--border-style) var(--text-color);
 			}
 
 			/* applied the sidebar layout manually */
