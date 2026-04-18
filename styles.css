@@ -397,10 +397,10 @@
 			--font-smoothing: auto;
 
 			@media (prefers-color-scheme: dark) {
-				--font-weight-normal: 300;
-				--font-weight-medium: 400;
-				--font-weight-semibold: 500;
-				--font-weight-bold: 600;
+				--font-weight-normal: 350;
+				--font-weight-medium: 450;
+				--font-weight-semibold: 550;
+				--font-weight-bold: 650;
 				--font-smoothing: antialiased;
 			}
 
