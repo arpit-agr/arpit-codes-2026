@@ -15,6 +15,25 @@
 		font-size: var(--step-8);
 	}
 
+	.skip-link-container {
+		a {
+			display: block;
+			inline-size: fit-content;
+
+			font-size: var(--step-0);
+			font-weight: var(--font-weight-medium);
+			text-transform: uppercase;
+		}
+
+		&:focus-within {
+			padding-block: var(--site-header-padding-block);
+			border-block-end: var(--border-width-hairline) var(--border-style)
+				var(--border-color);
+			background: var(--focus-bg-color);
+			color: var(--focus-color);
+		}
+	}
+
 	.site-header {
 		position: sticky;
 		inset-block-start: 0;
@@ -605,7 +624,7 @@
 		Info: https://piccalil.li/quick-tip/visually-hidden/
 	*/
 
-	.visually-hidden {
+	.visually-hidden:not(:focus-visible) {
 		border: 0;
 		clip: rect(0 0 0 0);
 		height: 0;
