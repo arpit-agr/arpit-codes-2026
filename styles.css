@@ -86,7 +86,7 @@
 		padding-inline: var(--wrapper-padding-inline, 1lh);
 	}
 
-	.project-list-container-inner {
+	.project-list-scrollport {
 		--sidebar-gap: 0 var(--sidebar-column-gap);
 
 		/* applied the sidebar layout manually */
@@ -133,31 +133,29 @@
 			padding-inline: unset;
 		}
 
-		.project-list-container-inner {
+		.project-list-scrollport {
 			--_dynamic-gutter: calc((100cqi - var(--wrapper-max-width)) / 2);
 
 			display: grid;
 			grid-template-columns:
-				var(--_dynamic-gutter) var(--wrapper-padding-inline)
-				var(--sidebar-content-min-width, 20rem) var(--sidebar-column-gap) 1fr var(
-					--wrapper-padding-inline
-				)
+				var(--_dynamic-gutter)
+				var(--sidebar-content-min-width, 20rem) 1fr
 				var(--_dynamic-gutter);
-			gap: 0px;
+			gap: 0 var(--sidebar-column-gap);
 
 			overflow-x: auto;
-			scroll-padding-inline: calc(
+			scroll-padding-inline-start: calc(
 				var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
 					var(--sidebar-content-min-width) + var(--sidebar-column-gap)
 			);
 			scroll-snap-type: x mandatory;
 			scrollbar-width: none;
-
+			overscroll-behavior-inline: contain;
 			isolation: isolate;
 		}
 
 		.project-list {
-			grid-column: 5/6;
+			grid-column: 3/4;
 
 			display: flex;
 			gap: var(--space-l);
@@ -166,18 +164,22 @@
 				content: "";
 				flex-shrink: 0;
 				flex-basis: max(0.1px, calc((100cqi - var(--wrapper-max-width)) / 2));
+				scroll-snap-align: end;
+				scroll-snap-stop: always;
 			}
 		}
 
 		.project-card {
 			flex-shrink: 0;
-			flex-basis: 24cqi;
+			flex-basis: calc(
+				(
+						var(--wrapper-max-width) - (2 * var(--wrapper-padding-inline)) -
+							var(--sidebar-content-min-width) - var(--sidebar-column-gap)
+					) *
+					0.75
+			);
 			scroll-snap-align: start;
 			scroll-snap-stop: always;
-
-			&:last-child {
-				scroll-snap-align: end;
-			}
 		}
 	}
 
@@ -254,7 +256,7 @@
 		main {
 			--region-space: var(--space-l-xl);
 			--sidebar-row-gap: var(--space-s-m);
-			--sidebar-column-gap: var(--space-s-m);
+			--sidebar-column-gap: var(--wrapper-padding-inline);
 			--sidebar-gap: var(--sidebar-row-gap) var(--sidebar-column-gap);
 			--sidebar-content-min-width: 18.75rem;
 			--sidebar-wrap-at: 60%;
