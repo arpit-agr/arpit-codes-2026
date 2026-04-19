@@ -79,6 +79,7 @@
 
 	.project-list-container {
 		container-type: inline-size;
+		isolation: isolate;
 
 		/* applied the wrapper manually */
 		margin-inline: auto;
@@ -151,7 +152,6 @@
 			scroll-snap-type: x mandatory;
 			scrollbar-width: none;
 			overscroll-behavior-inline: contain;
-			isolation: isolate;
 		}
 
 		.project-list {
