@@ -158,7 +158,7 @@
 			grid-column: 3/4;
 
 			display: flex;
-			gap: var(--space-l);
+			gap: var(--space-l-xl);
 
 			&:after {
 				content: "";
@@ -176,7 +176,7 @@
 						var(--wrapper-max-width) - (2 * var(--wrapper-padding-inline)) -
 							var(--sidebar-content-min-width) - var(--sidebar-column-gap)
 					) *
-					0.75
+					0.5
 			);
 			scroll-snap-align: start;
 			scroll-snap-stop: always;
@@ -366,7 +366,7 @@
 
 			--red: #ca3535;
 			--green: #0f7a52;
-			--orange: oklch(0.9 0.19 67.28);
+			--orange: oklch(0.8 0.19 67.28);
 			--yellow: #ffdd00;
 			--yellow-shade-50: color-mix(in oklab, var(--yellow), var(--black) 50%);
 
@@ -435,7 +435,7 @@
 		:root {
 			--measure: 60ch;
 			--wrapper-max-width: 64rem;
-			--wrapper-padding-inline: var(--space-s-l);
+			--wrapper-padding-inline: var(--space-s-m);
 			--region-space: var(--space-s-l);
 
 			--cluster-gap: var(--space-s);
