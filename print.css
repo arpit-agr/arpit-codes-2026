@@ -1,0 +1,25 @@
+[href^="/"]::after,
+[href^="http://"]::after,
+[href^="https://"]::after {
+	content: " (" attr(href) ")";
+	word-wrap: break-word;
+}
+
+.site-header {
+	display: none;
+}
+
+.homepage {
+	main > * {
+		break-inside: avoid-page;
+	}
+
+	#projects li:nth-child(n + 5) {
+		display: none;
+	}
+
+	#contact [href^="mailto"] {
+		--link-decoration-line: underline;
+		padding: unset;
+	}
+}
