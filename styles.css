@@ -195,10 +195,12 @@
 			}
 
 			&::scroll-button(*) {
+				--focus-ring-width: calc(1.5 * var(--border-width-thick));
+
 				inline-size: 2.75rem;
 				block-size: 2.75rem;
 
-				margin-block-start: 1lh;
+				margin-block-start: var(--space-m-l);
 				padding: unset;
 
 				border: none;
@@ -214,10 +216,10 @@
 				transition-duration: var(--transition-normal);
 			}
 
-			&::scroll-button(*):hover {
-				--focus-ring-width: calc(1.5 * var(--border-width-thick));
+			&::scroll-button(*):hover,
+			&::scroll-button(*):focus-visible {
 				box-shadow: 0 0 0 var(--focus-ring-width, 3px)
-					var(--fc-shadow-color, oklch(from currentColor l c h / 0.25));
+					oklch(from currentColor l c h / 0.25);
 			}
 
 			&::scroll-button(*):active {
@@ -237,7 +239,8 @@
 				content: "\E1D2" / "Scroll Left";
 				margin-inline-start: calc(
 					var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
-						var(--sidebar-content-min-width) + var(--sidebar-column-gap)
+						var(--sidebar-content-min-width) + var(--sidebar-column-gap) +
+						var(--border-width-thick)
 				);
 				margin-inline-end: 1ch;
 			}
