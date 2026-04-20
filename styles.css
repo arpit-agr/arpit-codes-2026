@@ -193,6 +193,58 @@
 			&::before {
 				display: none;
 			}
+
+			&::scroll-button(*) {
+				inline-size: 2.75rem;
+				block-size: 2.75rem;
+
+				margin-block-start: 1lh;
+				padding: unset;
+
+				border: none;
+				border-radius: var(--radius-full);
+				outline: var(--border-width-medium) var(--border-style) currentColor;
+				background: none;
+
+				font-family: var(--font-body);
+				font-size: var(--step-2);
+				cursor: pointer;
+
+				transition-property: opacity, scale;
+				transition-duration: var(--transition-normal);
+			}
+
+			&::scroll-button(*):hover {
+				--focus-ring-width: calc(1.5 * var(--border-width-thick));
+				box-shadow: 0 0 0 var(--focus-ring-width, 3px)
+					var(--fc-shadow-color, oklch(from currentColor l c h / 0.25));
+			}
+
+			&::scroll-button(*):active {
+				scale: 0.98;
+			}
+
+			&::scroll-button(*):focus-visible {
+				background: var(--focus-bg-color);
+				color: var(--focus-color);
+			}
+
+			&::scroll-button(*):disabled {
+				opacity: 0.37;
+			}
+
+			&::scroll-button(left) {
+				content: "\E1D2" / "Scroll Left";
+				margin-inline-start: calc(
+					var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
+						var(--sidebar-content-min-width) + var(--sidebar-column-gap)
+				);
+				margin-inline-end: 1ch;
+			}
+
+			&::scroll-button(right) {
+				content: "\E1D7" / "Scroll Right";
+			}
 		}
 
 		.project-list {
@@ -216,13 +268,11 @@
 				var(--sidebar-content-min-width) + (2 * var(--sidebar-column-gap))
 			);
 			scroll-snap-align: start;
-			/*scroll-snap-stop: always;*/
+			scroll-snap-stop: always;
 		}
 
-		.project-card:not(:last-child) {
-			padding-inline-end: var(--sidebar-column-gap);
-			/*border-inline-end: var(--border-width-hairline) var(--border-style)
-				var(--border-color);*/
+		.project-card + .project-card {
+			margin-inline-start: var(--sidebar-column-gap);
 		}
 	}
 
@@ -259,9 +309,12 @@
 	#contact {
 		[href^="mailto"] {
 			--link-decoration-line: none;
+
 			display: inline-block;
 			padding: 0.5em;
 			text-box: trim-both cap alphabetic;
+			border: var(--btn-border-width, 1px) var(--btn-border-style, solid)
+				var(--btn-border-color, #0000);
 
 			&:hover {
 				--link-decoration-line: underline;
@@ -562,6 +615,7 @@
 			--link-underline-offset: 0.125em;
 		}
 
+		.btn,
 		button,
 		[type="button"],
 		[type="submit"],
