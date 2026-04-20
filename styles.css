@@ -267,8 +267,9 @@
 
 		.project-card {
 			flex-shrink: 0;
-			flex-basis: calc(
-				var(--sidebar-content-min-width) + (2 * var(--sidebar-column-gap))
+			flex-basis: min(
+				27cqi,
+				calc(var(--sidebar-content-min-width) + (2 * var(--sidebar-column-gap)))
 			);
 			scroll-snap-align: start;
 			scroll-snap-stop: always;
