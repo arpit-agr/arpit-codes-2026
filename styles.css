@@ -219,7 +219,7 @@
 			&::scroll-button(*):hover,
 			&::scroll-button(*):focus-visible {
 				box-shadow: 0 0 0 var(--focus-ring-width, 3px)
-					oklch(from currentColor l c h / 0.25);
+					oklch(from var(--text-color) l c h / 0.25);
 			}
 
 			&::scroll-button(*):active {
