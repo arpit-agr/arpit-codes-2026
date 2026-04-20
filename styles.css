@@ -42,6 +42,39 @@
 		z-index: 1;
 	}
 
+	/*@supports (animation-timeline: view()) {
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		.skip-link-container,
+		.site-header {
+			position: fixed;
+			inset-inline-start: 0;
+			inset-block-start: 0;
+			inline-size: 100%;
+		}
+
+		.skip-link-container {
+			z-index: 2;
+		}
+
+		.site-header {
+			animation: fade-in auto linear both;
+			animation-timeline: scroll();
+			animation-range: 0% 6.25rem;
+
+			&:focus-within {
+				animation: none;
+			}
+		}
+	}*/
+
 	.site-nav {
 		li {
 			position: relative;
@@ -128,7 +161,7 @@
 		position: relative;
 	}
 
-	@media (width >= 64rem) {
+	@media screen and (width >= 64rem) {
 		.project-list-container {
 			max-inline-size: unset;
 			padding-inline: unset;
@@ -152,6 +185,10 @@
 			scroll-snap-type: x mandatory;
 			scrollbar-width: none;
 			overscroll-behavior-inline: contain;
+
+			@media (prefers-reduced-motion: no-preference) {
+				scroll-behavior: smooth;
+			}
 		}
 
 		.project-list {
@@ -171,15 +208,9 @@
 
 		.project-card {
 			flex-shrink: 0;
-			flex-basis: calc(
-				(
-						var(--wrapper-max-width) - (2 * var(--wrapper-padding-inline)) -
-							var(--sidebar-content-min-width) - var(--sidebar-column-gap)
-					) *
-					0.5
-			);
+			flex-basis: calc(var(--sidebar-content-min-width) - var(--sidebar-column-gap));
 			scroll-snap-align: start;
-			scroll-snap-stop: always;
+			/*scroll-snap-stop: always;*/
 		}
 	}
 
@@ -435,7 +466,7 @@
 		:root {
 			--measure: 60ch;
 			--wrapper-max-width: 64rem;
-			--wrapper-padding-inline: var(--space-s-m);
+			--wrapper-padding-inline: var(--space-m);
 			--region-space: var(--space-s-l);
 
 			--cluster-gap: var(--space-s);
@@ -888,43 +919,45 @@
 		navigation: auto;
 	}
 
-	/*https://daverupert.com/2026/04/inverted-light-dark/*/
-	/* initialize variables */
-	:root {
-		--theme: light;
-		color-scheme: light dark;
-
-		@media (prefers-color-scheme: dark) {
-			--theme: dark;
-		}
-	}
-
-	/* the magic: use a variable to control color-scheme */
-	[data-theme] {
-		color-scheme: var(--theme);
-	}
-
-	/* manual light mode */
-	[data-theme="light"] {
-		--theme: light;
-	}
-
-	/* manual dark mode */
-	[data-theme="dark"] {
-		--theme: dark;
-	}
-
-	/* if light theme, inverted set to dark */
-	@container style(--theme: light) {
-		[data-theme="inverted"] {
-			--theme: dark;
-		}
-	}
-
-	/* if dark theme, inverted set tolight */
-	@container style(--theme: dark) {
-		[data-theme="inverted"] {
+	@media screen {
+		/*https://daverupert.com/2026/04/inverted-light-dark/*/
+		/* initialize variables */
+		:root {
 			--theme: light;
+			color-scheme: light dark;
+
+			@media (prefers-color-scheme: dark) {
+				--theme: dark;
+			}
+		}
+
+		/* the magic: use a variable to control color-scheme */
+		[data-theme] {
+			color-scheme: var(--theme);
+		}
+
+		/* manual light mode */
+		[data-theme="light"] {
+			--theme: light;
+		}
+
+		/* manual dark mode */
+		[data-theme="dark"] {
+			--theme: dark;
+		}
+
+		/* if light theme, inverted set to dark */
+		@container style(--theme: light) {
+			[data-theme="inverted"] {
+				--theme: dark;
+			}
+		}
+
+		/* if dark theme, inverted set tolight */
+		@container style(--theme: dark) {
+			[data-theme="inverted"] {
+				--theme: light;
+			}
 		}
 	}
 
