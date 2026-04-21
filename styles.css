@@ -134,16 +134,14 @@
 			flex-basis: var(--sidebar-content-min-width, 20rem);
 			flex-grow: 1;
 		}
-
-		.project-list {
-			flex-basis: 0;
-			flex-grow: 99999;
-			min-inline-size: var(--sidebar-wrap-at, 50%);
-		}
 	}
 
-	/* applied grid-auto layout manually */
 	.project-list {
+		flex-basis: 0;
+		flex-grow: 99999;
+		min-inline-size: var(--sidebar-wrap-at, 50%);
+
+		/* applied grid-auto layout manually */
 		--grid-item-min: max(25cqi, 15rem);
 		--grid-gap: var(--space-l-xl);
 
@@ -157,8 +155,48 @@
 	}
 
 	.project-card {
-		--stack-gap: var(--space-2xs);
 		position: relative;
+		display: grid;
+		row-gap: var(--space-xs);
+	}
+
+	.project-card-thumbnail {
+		order: -1;
+
+		img {
+			inline-size: 100%;
+		}
+	}
+
+	.project-card-content {
+		display: grid;
+		row-gap: inherit;
+
+		> *:not(h3) {
+			font-size: 0.8333em;
+		}
+
+		h3,
+		p {
+			position: relative;
+			z-index: 2;
+		}
+
+		h3 {
+			font-size: var(--step-1);
+			font-weight: var(--font-weight-medium);
+		}
+
+		a {
+			justify-self: start;
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+			}
+		}
 	}
 
 	@media screen and (width >= 64rem) {
@@ -176,6 +214,9 @@
 				var(--sidebar-content-min-width, 20rem) 1fr
 				var(--_dynamic-gutter);
 			gap: 0 var(--sidebar-column-gap);
+
+			/* this is to avoid focus styles getting cut off  */
+			padding-block-end: var(--focus-ring-width);
 
 			overflow-x: auto;
 			scroll-padding-inline-start: calc(
@@ -200,9 +241,8 @@
 				inline-size: 2.75rem;
 				block-size: 2.75rem;
 
-				margin-block-start: var(--space-m-l);
 				padding: unset;
-
+				margin-block-start: calc(var(--region-space) - var(--focus-ring-width));
 				border: none;
 				border-radius: var(--radius-full);
 				outline: var(--border-width-medium) var(--border-style) currentColor;
@@ -251,62 +291,35 @@
 		}
 
 		.project-list {
+			min-inline-size: unset;
+			grid-template-columns: unset;
+
 			grid-column: 3/4;
-
-			display: flex;
-			gap: var(--sidebar-column-gap);
-
-			&:after {
-				content: "";
-				flex-shrink: 0;
-				flex-basis: max(0.1px, calc((100cqi - var(--wrapper-max-width)) / 2));
-				scroll-snap-align: end;
-				scroll-snap-stop: always;
-			}
+			grid-auto-flow: column;
+			grid-auto-columns: 20rem;
+			grid-template-rows: repeat(4, auto);
+			gap: var(--space-xs) calc(2 * var(--sidebar-column-gap));
 		}
 
 		.project-card {
-			flex-shrink: 0;
-			flex-basis: min(
-				27cqi,
-				calc(var(--sidebar-content-min-width) + (2 * var(--sidebar-column-gap)))
-			);
+			grid-row: 1/-1;
+
+			grid-template-rows: subgrid;
+
 			scroll-snap-align: start;
 			scroll-snap-stop: always;
+
+			&:last-child {
+				scroll-snap-align: end;
+				scroll-margin-inline-end: calc(
+					max(0px, var(--_dynamic-gutter)) + var(--wrapper-padding-inline)
+				);
+			}
 		}
 
-		.project-card + .project-card {
-			margin-inline-start: var(--sidebar-column-gap);
-		}
-	}
-
-	.project-card-thumbnail {
-		order: -1;
-
-		img {
-			inline-size: 100%;
-		}
-	}
-
-	.project-card-content {
-		--flow-space: var(--space-s);
-
-		h3 {
-			font-size: var(--step-1);
-			font-weight: var(--font-weight-medium);
-		}
-
-		a::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			z-index: 1;
-		}
-
-		p {
-			position: relative;
-			font-size: var(--step-0);
-			z-index: 2;
+		.project-card-content {
+			grid-row: span 3;
+			grid-template-rows: subgrid;
 		}
 	}
 
@@ -425,8 +438,9 @@
 			--step-8: clamp(3.8698rem, 1.8369rem + 10.1649vw, 9.9688rem);
 
 			/* Space scale */
-			/* @link https://utopia.fyi/space/calculator?c=320,14.4,1.2,1280,16,1.333,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+			/* @link https://utopia.fyi/space/calculator?c=320,14.4,1.2,1280,16,1.333,8,2,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
+			--space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
 			--space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
 			--space-2xs: clamp(0.4375rem, 0.4167rem + 0.1042vw, 0.5rem);
 			--space-xs: clamp(0.6875rem, 0.6667rem + 0.1042vw, 0.75rem);
@@ -438,6 +452,7 @@
 			--space-3xl: clamp(5.375rem, 5.1667rem + 1.0417vw, 6rem);
 
 			/* One-up pairs */
+			--space-4xs-3xs: clamp(0.125rem, 0.0833rem + 0.2083vw, 0.25rem);
 			--space-3xs-2xs: clamp(0.25rem, 0.1667rem + 0.4167vw, 0.5rem);
 			--space-2xs-xs: clamp(0.4375rem, 0.3333rem + 0.5208vw, 0.75rem);
 			--space-xs-s: clamp(0.6875rem, 0.5833rem + 0.5208vw, 1rem);
