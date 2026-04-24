@@ -670,10 +670,7 @@
 			--link-active-color: var(--text-color);
 
 			/* border */
-			--border-color: light-dark(
-				var(--black-tint-50),
-				color-mix(in oklab, var(--black), var(--white) 33%)
-			);
+			--border-color: var(--black-tint-50);
 			--input-border-color: var(--text-color);
 
 			/* focus state */
