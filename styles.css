@@ -171,9 +171,10 @@
 		grid-template-rows: subgrid;
 		row-gap: var(--space-m-l);
 		padding: var(--space-s-m);
-		border: var(--border-width-hairline) var(--border-style) var(--border-color);
+		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+		outline-offset: calc(-1 * var(--border-width-hairline));
 		overflow: clip;
-		transition: border-color var(--transition-normal);
+		transition: outline-color var(--transition-normal);
 
 		@supports not (text-box: trim-both cap alphabetic) {
 			row-gap: var(--space-xs);
@@ -181,7 +182,9 @@
 
 		@media (hover: hover) {
 			&:has(a:hover) {
-				border-color: currentColor;
+				outline-width: var(--border-width-thin);
+				outline-color: currentColor;
+				outline-offset: calc(-1 * var(--border-width-thin));
 			}
 		}
 	}
@@ -218,6 +221,7 @@
 		position: relative;
 		margin-block-start: auto;
 		aspect-ratio: 1.66;
+		z-index: -1;
 
 		img {
 			position: absolute;
@@ -283,7 +287,9 @@
 
 				padding: unset;
 				margin-block-start: calc(var(--sidebar-row-gap) - var(--focus-ring-width));
-				border: var(--border-width-hairline) var(--border-style) var(--border-color);
+				border: none;
+				outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+				outline-offset: calc(-1 * var(--border-width-hairline));
 				background: none;
 
 				font-family: var(--font-body);
@@ -296,9 +302,9 @@
 
 			&::scroll-button(*):hover,
 			&::scroll-button(*):focus-visible {
-				border-color: currentColor;
-				box-shadow: 0 0 0 var(--focus-ring-width, 3px)
-					oklch(from var(--text-color) l c h / 0.25);
+				outline-width: var(--border-width-thin);
+				outline-color: currentColor;
+				outline-offset: calc(-1 * var(--border-width-thin));
 			}
 
 			&::scroll-button(*):active {
@@ -665,7 +671,7 @@
 
 			/* border */
 			--border-color: light-dark(
-				color-mix(in oklab, var(--black), var(--white) 66%),
+				var(--black-tint-50),
 				color-mix(in oklab, var(--black), var(--white) 33%)
 			);
 			--input-border-color: var(--text-color);
