@@ -169,8 +169,8 @@
 		grid-row: span 4;
 		display: grid;
 		grid-template-rows: subgrid;
-		row-gap: var(--space-m-l);
-		padding: var(--space-s-m);
+		row-gap: var(--space-m);
+		padding: var(--space-m);
 		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
 		outline-offset: calc(-1 * var(--border-width-hairline));
 		overflow: clip;
@@ -449,7 +449,7 @@
 				display: inline-block;
 				block-size: 0.7em;
 				inline-size: auto;
-				border: var(--border-width-thin) var(--border-style) currentColor;
+				outline: var(--border-width-thin) var(--border-style) currentColor;
 			}
 
 			/* applied the sidebar layout manually */
