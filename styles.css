@@ -126,6 +126,7 @@
 	}
 
 	.project-list-container {
+		--flow-space: var(--region-space);
 		container-type: inline-size;
 		isolation: isolate;
 
@@ -161,18 +162,21 @@
 		--grid-item-min: min(26ch, 100%);
 		--grid-gap: var(--space-l);
 
-		grid-template-rows: repeat(4, auto);
+		> li {
+			container-type: inline-size;
+		}
 	}
 
 	.project-card {
 		position: relative;
-		grid-row: span 4;
+		block-size: 100%;
 		display: grid;
-		grid-template-rows: subgrid;
+		grid-template-rows: 1fr 1fr;
 		row-gap: var(--space-m);
 		padding: var(--space-m);
 		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
 		outline-offset: calc(-1 * var(--border-width-hairline));
+		border-radius: var(--radius-s);
 		overflow: clip;
 		transition: outline-color var(--transition-normal);
 
@@ -192,7 +196,7 @@
 	.project-card-content {
 		grid-row: span 3;
 		display: grid;
-		grid-template-rows: subgrid;
+		grid-template-rows: auto auto 1fr;
 		row-gap: var(--space-s);
 
 		> *:not(h3) {
@@ -207,6 +211,7 @@
 
 		a {
 			justify-self: start;
+			align-self: end;
 
 			&::before {
 				content: "";
@@ -220,7 +225,7 @@
 	.project-card-thumbnail {
 		position: relative;
 		margin-block-start: auto;
-		aspect-ratio: 1.66;
+		aspect-ratio: 1.67;
 		z-index: -1;
 
 		img {
@@ -235,9 +240,19 @@
 		}
 	}
 
+	@container (width > 36rem) {
+		.project-card {
+			grid-template-columns: 1fr 1fr;
+			column-gap: var(--sidebar-column-gap);
+
+			> * {
+				grid-row: 1/-1;
+			}
+		}
+	}
+
 	@media screen and (width >= 72rem) {
 		.project-list-container {
-			--flow-space: var(--region-space);
 			max-inline-size: unset;
 			padding-inline: unset;
 		}
@@ -251,10 +266,9 @@
 				var(--sidebar-content-min-width, 20rem) 1fr
 				var(--_dynamic-gutter);
 			gap: 0 var(--sidebar-column-gap);
-
-			/* this is to avoid focus styles getting cut off  */
-			padding-block-end: var(--focus-ring-width);
-
+			/* the outline gets cut off at the bottom on safari
+			a little bit of padding fixes it */
+			padding-block-end: var(--border-width-hairline);
 			overflow-x: auto;
 			scroll-padding-inline-start: calc(
 				var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
@@ -286,10 +300,11 @@
 				block-size: 2.75rem;
 
 				padding: unset;
-				margin-block-start: calc(var(--sidebar-row-gap) - var(--focus-ring-width));
+				margin-block-start: var(--sidebar-row-gap);
 				border: none;
 				outline: var(--border-width-hairline) var(--border-style) var(--border-color);
 				outline-offset: calc(-1 * var(--border-width-hairline));
+				border-radius: var(--radius-s);
 				background: none;
 
 				font-family: var(--font-body);
@@ -342,17 +357,19 @@
 			grid-auto-flow: column;
 			grid-auto-columns: var(--grid-item-min);
 
+			> li {
+				grid-row: span 4;
+				scroll-snap-align: start;
+				/*scroll-snap-stop: always;*/
+
+				&:last-child {
+					scroll-snap-align: end;
+				}
+			}
+
 			&::after {
 				content: "";
-			}
-		}
-
-		.project-card {
-			scroll-snap-align: start;
-			scroll-snap-stop: always;
-
-			&:last-child {
-				scroll-snap-align: end;
+				block-size: 1px;
 			}
 		}
 	}
@@ -367,6 +384,7 @@
 			padding: 0.5em;
 			border: var(--btn-border-width, 1px) var(--btn-border-style, solid)
 				var(--btn-border-color, #0000);
+			border-radius: var(--radius-s);
 
 			&:hover {
 				--link-decoration-line: underline;
@@ -415,13 +433,13 @@
 			--sidebar-content-min-width: 18.75rem;
 			--sidebar-wrap-at: 60%;
 
-			h2::before {
+			/*h2::before {
 				content: "✹";
 				margin-inline-end: 0.5ch;
 				color: light-dark(var(--orange), var(--orange-shade-50));
 				text-box: trim-both cap alphabetic;
 				vertical-align: text-bottom;
-			}
+			}*/
 		}
 
 		#hero {
@@ -450,6 +468,8 @@
 				block-size: 0.7em;
 				inline-size: auto;
 				outline: var(--border-width-thin) var(--border-style) currentColor;
+				mask: radial-gradient(0.7rem at 0.7rem 0.7rem, #0000 98%, #000) calc(-1 * 0.7rem)
+					calc(-1 * 0.7rem);
 			}
 
 			/* applied the sidebar layout manually */
@@ -478,10 +498,10 @@
 					min-inline-size: var(--sidebar-wrap-at, 50%);
 				}
 
-				b {
+				/*b {
 					box-shadow: inset 0rem -1ex 0
 						light-dark(var(--orange-tint-25), var(--orange-shade-50));
-				}
+				}*/
 			}
 		}
 	}
