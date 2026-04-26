@@ -9,7 +9,7 @@ export default async function (eleventyConfig) {
 	//Passthrough copy
 	eleventyConfig.addPassthroughCopy("./src/assets/fonts");
 	eleventyConfig.addPassthroughCopy("./src/assets/img/og.jpeg");
-	// eleventyConfig.addPassthroughCopy({ "./src/assets/favicons": "/" });
+	eleventyConfig.addPassthroughCopy({ "./src/assets/favicons": "/" });
 
 	// Lightning CSS
 	eleventyConfig.addTemplateFormats("css");

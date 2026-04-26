@@ -15,7 +15,6 @@
 			document.documentElement.classList.add("js");
 		</script>
 
-		<!--TODO: subset the fonts-->
 		<style>
 			@font-face {
 				font-family: "Jakob Semi-Condensed";
@@ -77,11 +76,10 @@
 		<meta property="og:url" content="https://arpit.codes/" />
 		<link rel="canonical" href="https://arpit.codes/" />
 
-		<!--TODO: generate favicons and web manifest-->
-		<!--<link rel="icon" href="/favicon.ico" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="manifest" href="/my.webmanifest" />-->
+		<!--TODO: add web manifest-->
+		<!--<link rel="manifest" href="/my.webmanifest" />-->
 	</head>
 	<body class="{{ pageClass or '' }} character-variants-5">
 		{% include 'components/skip-link.njk' %}
