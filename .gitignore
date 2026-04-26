@@ -1,1 +1,13 @@
+# Dependencies installed by npm
+/node_modules
+
+# Secrets and errors
+.env
+*.log
+
+# Build artefacts
+/_site
+.cache
+
+# macOS related files
 .DS_Store

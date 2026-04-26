@@ -1,0 +1,93 @@
+@layer exceptions {
+	.homepage {
+		/*
+			there's a bug in Safari that affects the layout
+			and removing the max-inline-size on the <p> elements fixes it
+			the line lengths are still readable on larger viewports
+		*/
+		--measure: none;
+
+		main {
+			--sidebar-row-gap: var(--space-l);
+			--sidebar-column-gap: var(--space-m);
+			--sidebar-gap: var(--sidebar-row-gap) var(--sidebar-column-gap);
+			--sidebar-content-min-width: 18.75rem;
+			--sidebar-wrap-at: 60%;
+
+			/*h2::before {
+				content: "✹";
+				margin-inline-end: 0.5ch;
+				color: light-dark(var(--orange), var(--orange-shade-50));
+				text-box: trim-both cap alphabetic;
+				vertical-align: text-bottom;
+			}*/
+		}
+
+		#hero {
+			h1 {
+				row-gap: var(--space-s);
+				font-size: var(--step-9-8);
+
+				.first-name {
+					position: relative;
+					display: inline-flex;
+					align-items: center;
+					gap: calc(0.33 * var(--sidebar-column-gap));
+
+					&::after {
+						content: "";
+						flex-grow: 999;
+						block-size: 0.125em;
+						background: currentColor;
+						pointer-events: none;
+					}
+				}
+			}
+
+			picture,
+			img {
+				display: inline-block;
+			}
+
+			img {
+				block-size: 0.7em;
+				inline-size: auto;
+				outline: var(--border-width-thin) var(--border-style) currentColor;
+				mask: radial-gradient(0.7rem at 0.7rem 0.7rem, #0000 98%, #000) calc(-1 * 0.7rem)
+					calc(-1 * 0.7rem);
+			}
+
+			/* applied the sidebar layout manually */
+			.desc-container {
+				--flow-space: var(--space-l);
+				--sidebar-gap: 0 var(--sidebar-column-gap);
+
+				@supports not (text-box: trim-both cap alphabetic) {
+					--flow-space: 0px;
+				}
+
+				display: flex;
+				flex-wrap: wrap;
+				gap: var(--sidebar-gap, 1rem);
+				align-items: var(--sidebar-vertical-alignment, flex-start);
+
+				&::before {
+					content: "";
+					flex-basis: var(--sidebar-content-min-width, 20rem);
+					flex-grow: 1;
+				}
+
+				> div {
+					flex-basis: 0;
+					flex-grow: 99999;
+					min-inline-size: var(--sidebar-wrap-at, 50%);
+				}
+
+				/*b {
+					box-shadow: inset 0rem -1ex 0
+						light-dark(var(--orange-tint-25), var(--orange-shade-50));
+				}*/
+			}
+		}
+	}
+}

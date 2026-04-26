@@ -1,0 +1,9 @@
+@layer components {
+	.site-footer {
+		--region-space: var(--site-header-padding-block);
+
+		border-block-start: var(--border-width-hairline) var(--border-style)
+			var(--border-color);
+		font-size: var(--step-0);
+	}
+}

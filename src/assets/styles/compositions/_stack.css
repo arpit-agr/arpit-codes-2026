@@ -1,0 +1,25 @@
+@layer compositions {
+	/*
+		STACK
+		More info: https://every-layout.dev/layouts/stack/
+		A layout that lets you distribute items vertically with consistent
+		spacing, regardless of their size
+
+		CUSTOM PROPERTIES AND CONFIGURATION
+		--stack-gap: Controls the gap between stack items
+
+		--stack-horizontal-alignment: Controls horizontal alignment of items.
+		Can be any acceptable flexbox alignment value.
+
+		--stack-vertical-alignment: Controls vertical alignment of items.
+		Can be any acceptable flexbox alignment value.
+	*/
+
+	.stack {
+		display: flex;
+		flex-direction: column;
+		gap: var(--stack-gap, 1lh);
+		justify-content: var(--stack-vertical-alignment, flex-start);
+		align-items: var(--stack-horizontal-alignment, flex-start);
+	}
+}

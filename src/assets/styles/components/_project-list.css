@@ -1,0 +1,250 @@
+@layer components {
+	.project-list-container {
+		--flow-space: var(--region-space);
+		container-type: inline-size;
+		isolation: isolate;
+
+		/* applied the wrapper manually */
+		margin-inline: auto;
+		max-inline-size: var(--wrapper-max-width, 80rem);
+		padding-inline: var(--wrapper-padding-inline, 1lh);
+	}
+
+	.project-list-scrollport {
+		--sidebar-gap: 0 var(--sidebar-column-gap);
+
+		/* applied the sidebar layout manually */
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--sidebar-gap, 1rem);
+		align-items: var(--sidebar-vertical-alignment, flex-start);
+
+		&::before {
+			content: "";
+			flex-basis: var(--sidebar-content-min-width, 20rem);
+			flex-grow: 1;
+		}
+
+		> * {
+			flex-basis: 0;
+			flex-grow: 99999;
+			min-inline-size: var(--sidebar-wrap-at, 50%);
+		}
+	}
+
+	.project-list {
+		--grid-item-min: min(26ch, 100%);
+		--grid-gap: var(--space-l);
+
+		> li {
+			container-type: inline-size;
+		}
+	}
+
+	.project-card {
+		position: relative;
+		block-size: 100%;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		row-gap: var(--space-m);
+		padding: var(--space-m);
+		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+		outline-offset: calc(-1 * var(--border-width-hairline));
+		border-radius: var(--radius-s);
+		overflow: clip;
+		transition: outline-color var(--transition-normal);
+
+		@supports not (text-box: trim-both cap alphabetic) {
+			row-gap: var(--space-xs);
+		}
+
+		@media (hover: hover) {
+			&:has(a:hover) {
+				outline-width: var(--border-width-thin);
+				outline-color: currentColor;
+				outline-offset: calc(-1 * var(--border-width-thin));
+			}
+		}
+	}
+
+	.project-card-content {
+		grid-row: span 3;
+		display: grid;
+		grid-template-rows: auto auto 1fr;
+		row-gap: var(--space-s);
+
+		> *:not(h3) {
+			font-size: 0.8333em;
+		}
+
+		h3,
+		p {
+			position: relative;
+			z-index: 2;
+		}
+
+		a {
+			justify-self: start;
+			align-self: end;
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+			}
+		}
+	}
+
+	.project-card-thumbnail {
+		position: relative;
+		margin-block-start: auto;
+		aspect-ratio: 1.67;
+		z-index: -1;
+
+		img {
+			position: absolute;
+			inset: 0;
+			inline-size: 100%;
+			object-fit: cover;
+			object-position: top;
+			filter: drop-shadow(
+				0rem 1ex 1ex light-dark(oklch(from var(--text-color) l c h / 0.25), var(--black))
+			);
+		}
+	}
+
+	@container (width > 36rem) {
+		.project-card {
+			grid-template-columns: 1fr 1fr;
+			column-gap: var(--sidebar-column-gap);
+
+			> * {
+				grid-row: 1/-1;
+			}
+		}
+	}
+
+	@media screen and (width >= 72rem) {
+		.project-list-container {
+			max-inline-size: unset;
+			padding-inline: unset;
+		}
+
+		.project-list-scrollport {
+			--_dynamic-gutter: calc((100cqi - var(--wrapper-max-width)) / 2);
+
+			display: grid;
+			grid-template-columns:
+				var(--_dynamic-gutter)
+				var(--sidebar-content-min-width, 20rem) 1fr
+				var(--_dynamic-gutter);
+			gap: 0 var(--sidebar-column-gap);
+			/* the outline gets cut off at the bottom on safari
+			a little bit of padding fixes it */
+			padding-block-end: var(--border-width-hairline);
+			overflow-x: auto;
+			scroll-padding-inline-start: calc(
+				var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
+					var(--sidebar-content-min-width) + var(--sidebar-column-gap)
+			);
+			scroll-padding-inline-end: calc(
+				max(0px, var(--_dynamic-gutter)) + var(--wrapper-padding-inline)
+			);
+			scroll-snap-type: x mandatory;
+			scrollbar-width: none;
+			overscroll-behavior-inline: contain;
+
+			@media (prefers-reduced-motion: no-preference) {
+				scroll-behavior: smooth;
+			}
+
+			&::before {
+				display: none;
+			}
+
+			> * {
+				grid-column: 3/4;
+			}
+
+			&::scroll-button(*) {
+				--focus-ring-width: var(--border-width-thick);
+
+				inline-size: 2.75rem;
+				block-size: 2.75rem;
+
+				padding: unset;
+				margin-block-start: var(--sidebar-row-gap);
+				border: none;
+				outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+				outline-offset: calc(-1 * var(--border-width-hairline));
+				border-radius: var(--radius-s);
+				background: none;
+
+				font-family: var(--font-body);
+				font-size: var(--step-2);
+				cursor: pointer;
+
+				transition-property: opacity, scale, border-color;
+				transition-duration: var(--transition-normal);
+			}
+
+			&::scroll-button(*):hover,
+			&::scroll-button(*):focus-visible {
+				outline-width: var(--border-width-thin);
+				outline-color: currentColor;
+				outline-offset: calc(-1 * var(--border-width-thin));
+			}
+
+			&::scroll-button(*):active {
+				scale: 0.98;
+			}
+
+			&::scroll-button(*):focus-visible {
+				background: var(--focus-bg-color);
+				color: var(--focus-color);
+			}
+
+			&::scroll-button(*):disabled {
+				opacity: 0.37;
+				cursor: not-allowed;
+			}
+
+			&::scroll-button(left) {
+				content: "\E1D2" / "Scroll Left";
+				margin-inline-start: calc(
+					var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
+						var(--sidebar-content-min-width) + var(--sidebar-column-gap)
+				);
+				margin-inline-end: calc(0.5 * var(--sidebar-column-gap));
+			}
+
+			&::scroll-button(right) {
+				content: "\E1D7" / "Scroll Right";
+			}
+		}
+
+		.project-list {
+			--grid-gap: var(--space-xs) var(--sidebar-column-gap);
+
+			grid-template-columns: unset;
+			grid-auto-flow: column;
+			grid-auto-columns: var(--grid-item-min);
+
+			> li {
+				grid-row: span 4;
+				scroll-snap-align: start;
+				/*scroll-snap-stop: always;*/
+
+				&:last-child {
+					scroll-snap-align: end;
+				}
+			}
+
+			&::after {
+				content: "";
+				block-size: 1px;
+			}
+		}
+	}
+}

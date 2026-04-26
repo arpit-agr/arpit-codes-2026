@@ -1,0 +1,37 @@
+@layer components {
+	.site-nav {
+		/*--cluster-gap: var(--space-m);*/
+
+		li {
+			position: relative;
+			padding-block: var(--site-header-padding-block);
+		}
+
+		a {
+			--link-decoration-line: none;
+
+			display: block;
+			font-size: 0.8333em;
+			font-weight: var(--font-weight-medium);
+
+			&:hover {
+				--link-decoration-line: underline;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+			}
+		}
+
+		[aria-current]:before {
+			content: "";
+			position: absolute;
+			inset-block-end: 0;
+			inset-inline: 0;
+			background: var(--text-color);
+			block-size: var(--border-width-thick);
+		}
+	}
+}

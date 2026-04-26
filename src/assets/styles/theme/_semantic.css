@@ -1,0 +1,61 @@
+@layer theme.semantic {
+	:root {
+		--measure: 60ch;
+		--wrapper-max-width: 64rem;
+		--wrapper-padding-inline: var(--space-m);
+		--region-space: var(--space-l-xl);
+
+		--cluster-gap: var(--space-s);
+		--grid-gap: var(--space-s);
+		--repel-gap: var(--space-s);
+		--sidebar-gap: var(--space-s);
+		--stack-gap: var(--space-s);
+		--switcher-gap: var(--space-s);
+
+		--font-body: var(--font-sans);
+		--font-heading: var(--font-sans);
+
+		--focus-ring-width: var(--border-width-thick);
+	}
+
+	/* color */
+	:root {
+		/* background */
+		--body-bg-color: light-dark(var(--white), var(--black-tint-5));
+
+		/* text */
+		--text-color: light-dark(var(--black), var(--white));
+		--secondary-text-color: light-dark(var(--black-tint-25), var(--black-tint-80));
+
+		/* brand color */
+		--brand-color: var(--blue);
+
+		/* link */
+		--link-color: var(--text-color);
+		--link-bg-color: var(--body-bg-color);
+		--link-visited-color: var(--text-color);
+		--link-hover-color: var(--text-color);
+		--link-active-color: var(--text-color);
+
+		/* border */
+		--border-color: var(--black-tint-50);
+		--input-border-color: var(--text-color);
+
+		/* focus state */
+		--focus-bg-color: var(--orange);
+		--focus-color: var(--black);
+
+		/* error state */
+		--error-color: var(--red);
+
+		/* success state */
+		--success-color: var(--green);
+
+		/* hover state */
+		--hover-bg-color: light-dark(var(--black-tint-80), var(--black-tint-25));
+
+		/* selected state */
+		/*--color-selection-bg: light-dark();
+			--color-selection-text: light-dark();*/
+	}
+}

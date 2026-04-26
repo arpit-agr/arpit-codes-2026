@@ -1,0 +1,140 @@
+@layer theme.base {
+	:root {
+		/* Type scale */
+		/* @link https://utopia.fyi/type/calculator?c=320,14.4,1.2,1280,16,1.333,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+		--step--2: clamp(0.5628rem, 0.6457rem + -0.1037vw, 0.625rem);
+		--step--1: clamp(0.75rem, 0.7499rem + 0.0003vw, 0.7502rem);
+		--step-0: clamp(0.9rem, 0.8667rem + 0.1667vw, 1rem);
+		--step-1: clamp(1.08rem, 0.9957rem + 0.4217vw, 1.333rem);
+		--step-2: clamp(1.296rem, 1.1357rem + 0.8015vw, 1.7769rem);
+		--step-3: clamp(1.5552rem, 1.2841rem + 1.3557vw, 2.3686rem);
+		--step-4: clamp(1.8662rem, 1.4359rem + 2.1518vw, 3.1573rem);
+		--step-5: clamp(2.2395rem, 1.5831rem + 3.2821vw, 4.2087rem);
+		--step-6: clamp(2.6874rem, 1.7131rem + 4.8714vw, 5.6102rem);
+		--step-7: clamp(3.2249rem, 1.807rem + 7.0893vw, 7.4784rem);
+		--step-8: clamp(3.8698rem, 1.8369rem + 10.1649vw, 9.9688rem);
+		--step-9: clamp(4.6438rem, 1.7623rem + 14.4076vw, 13.2884rem);
+
+		/*https://utopia.fyi/clamp/calculator?a=320,1280,74.3—159.5*/
+		--step-9-8: clamp(4.6438rem, 2.8687rem + 8.875vw, 9.9688rem);
+		/* @link https://utopia.fyi/clamp/calculator?a=320,1280,35.83—50.52 */
+		--step-5-4: clamp(2.2394rem, 1.9333rem + 1.5302vw, 3.1575rem);
+		/* @link https://utopia.fyi/clamp/calculator?a=320,1280,24.88—28.43 */
+		--step-3-2: clamp(1.555rem, 1.481rem + 0.3698vw, 1.7769rem);
+
+		/* Space scale */
+		/* @link https://utopia.fyi/space/calculator?c=320,14.4,1.2,1280,16,1.333,8,2,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+		--space-4xs: clamp(0.125rem, 0.125rem + 0vw, 0.125rem);
+		--space-3xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
+		--space-2xs: clamp(0.4375rem, 0.4167rem + 0.1042vw, 0.5rem);
+		--space-xs: clamp(0.6875rem, 0.6667rem + 0.1042vw, 0.75rem);
+		--space-s: clamp(0.875rem, 0.8333rem + 0.2083vw, 1rem);
+		--space-m: clamp(1.375rem, 1.3333rem + 0.2083vw, 1.5rem);
+		--space-l: clamp(1.8125rem, 1.75rem + 0.3125vw, 2rem);
+		--space-xl: clamp(2.6875rem, 2.5833rem + 0.5208vw, 3rem);
+		--space-2xl: clamp(3.625rem, 3.5rem + 0.625vw, 4rem);
+		--space-3xl: clamp(5.375rem, 5.1667rem + 1.0417vw, 6rem);
+
+		/* One-up pairs */
+		--space-4xs-3xs: clamp(0.125rem, 0.0833rem + 0.2083vw, 0.25rem);
+		--space-3xs-2xs: clamp(0.25rem, 0.1667rem + 0.4167vw, 0.5rem);
+		--space-2xs-xs: clamp(0.4375rem, 0.3333rem + 0.5208vw, 0.75rem);
+		--space-xs-s: clamp(0.6875rem, 0.5833rem + 0.5208vw, 1rem);
+		--space-s-m: clamp(0.875rem, 0.6667rem + 1.0417vw, 1.5rem);
+		--space-m-l: clamp(1.375rem, 1.1667rem + 1.0417vw, 2rem);
+		--space-l-xl: clamp(1.8125rem, 1.4167rem + 1.9792vw, 3rem);
+		--space-xl-2xl: clamp(2.6875rem, 2.25rem + 2.1875vw, 4rem);
+		--space-2xl-3xl: clamp(3.625rem, 2.8333rem + 3.9583vw, 6rem);
+
+		/* Custom pairs */
+		--space-s-l: clamp(0.875rem, 0.5rem + 1.875vw, 2rem);
+
+		/*
+				Each color group contains:
+				• a ‘primary’ variant
+				• tints – lighter variants of each colour
+				• shades – darker variants of each colour
+			*/
+		--white: #ffffff;
+		--black: #0b0c0c;
+		--black-tint-5: color-mix(in oklab, var(--black), var(--white) 5%);
+		--black-tint-25: color-mix(in oklab, var(--black), var(--white) 25%);
+		--black-tint-50: color-mix(in oklab, var(--black), var(--white) 50%);
+		--black-tint-80: color-mix(in oklab, var(--black), var(--white) 80%);
+		--black-tint-95: color-mix(in oklab, var(--black), var(--white) 95%);
+
+		--red: #ca3535;
+		--green: #0f7a52;
+
+		--orange: oklch(0.8 0.19 67.28);
+		--orange-tint-25: color-mix(in oklab, var(--orange), var(--white) 25%);
+		--orange-tint-50: color-mix(in oklab, var(--orange), var(--white) 50%);
+		--orange-tint-80: color-mix(in oklab, var(--orange), var(--white) 80%);
+		--orange-tint-95: color-mix(in oklab, var(--orange), var(--white) 95%);
+		--orange-shade-25: color-mix(in oklab, var(--orange), var(--black) 25%);
+		--orange-shade-50: color-mix(in oklab, var(--orange), var(--black) 50%);
+
+		--yellow: #ffdd00;
+		--yellow-shade-50: color-mix(in oklab, var(--yellow), var(--black) 50%);
+
+		--blue: #1d70b8;
+		--blue-tint-25: color-mix(in oklab, var(--blue), var(--white) 25%);
+		--blue-tint-50: color-mix(in oklab, var(--blue), var(--white) 50%);
+		--blue-tint-80: color-mix(in oklab, var(--blue), var(--white) 80%);
+		--blue-tint-95: color-mix(in oklab, var(--blue), var(--white) 95%);
+		--blue-shade-25: color-mix(in oklab, var(--blue), var(--black) 25%);
+		--blue-shade-50: color-mix(in oklab, var(--blue), var(--black) 50%);
+
+		/* font */
+		--font-display:
+			"Jakob Semi-Condensed", "Adjusted Arial Narrow Fallback", system-ui, sans-serif;
+		--font-sans: "Inter", "Adjusted Arial Fallback", ui-sans-serif, system-ui, sans-serif;
+		--font-mono: ui-monospace, monospace;
+		--font-weight-normal: 400;
+		--font-weight-medium: 500;
+		--font-weight-semibold: 600;
+		--font-weight-bold: 700;
+		--leading-none: 1;
+		--leading-tight: 1.125;
+		--leading-snug: 1.265625;
+		--leading-normal: 1.423828125;
+		--leading-relaxed: 1.6018066406;
+		--tracking-tight: -0.025em;
+		--tracking-normal: 0em;
+		--tracking-wide: 0.025em;
+		--font-smoothing: auto;
+
+		@media (prefers-color-scheme: dark) {
+			--font-weight-normal: 350;
+			--font-weight-medium: 450;
+			--font-weight-semibold: 550;
+			--font-weight-bold: 650;
+			--font-smoothing: antialiased;
+		}
+
+		/* border */
+		--border-width-hairline: 0.5px;
+		--border-width-thin: 1.5px;
+		--border-width-medium: 3px;
+		--border-width-thick: 5px;
+		--border-style: solid;
+		--radius-none: 0px;
+		--radius-s: 0.125rem;
+		--radius-m: 0.25rem;
+		--radius-l: 0.5rem;
+		--radius-full: 100vmax;
+
+		/* motion */
+		--transition-fast: 75ms;
+		--transition-normal: 150ms;
+		--transition-slow: 300ms;
+		--ease-in: cubic-bezier(0.4, 0, 1, 1);
+		--ease-out: cubic-bezier(0, 0, 0.2, 1);
+		--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+		/* shadows */
+		/* bring your own shadow tokens */
+	}
+}

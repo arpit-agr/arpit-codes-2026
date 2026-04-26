@@ -1,0 +1,31 @@
+@layer components {
+	body {
+		font-size: var(--step-1);
+	}
+
+	main {
+		> * + * {
+			border-block-start: var(--border-width-hairline) var(--border-style)
+				var(--border-color);
+		}
+	}
+
+	h1,
+	h2,
+	h3 {
+		--font-heading: var(--font-display);
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-size: var(--step-8);
+	}
+
+	h2 {
+		font-size: var(--step-5-4);
+	}
+
+	h3 {
+		font-size: var(--step-3-2);
+	}
+}
