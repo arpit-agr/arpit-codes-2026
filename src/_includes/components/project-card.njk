@@ -1,0 +1,19 @@
+<article class="project-card">
+	<div class="project-card-content">
+		<h3>{{ project.title }}</h3>
+		<p class="text-balance text-box-trim-both">{{ project.description }}</p>
+		<a href="{{ project.url }}">
+			View Project:
+			<span class="visually-hidden">{{ project.title }}</span>
+		</a>
+	</div>
+	<picture class="project-card-thumbnail">
+		<img
+			src="{{ project.thumbnail }}"
+			alt=""
+			loading="lazy"
+			decoding="async"
+			eleventy:widths="300,600,900,auto"
+		/>
+	</picture>
+</article>

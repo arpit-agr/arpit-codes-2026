@@ -83,7 +83,12 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/my.webmanifest" />-->
 	</head>
-	<body class="{{ pageClass }} character-variants-5">
+	<body class="{{ pageClass or '' }} character-variants-5">
+		{% include 'components/skip-link.njk' %}
+		{% include 'components/site-header.njk' %}
+
 		{{ content | safe }}
+
+		{% include 'components/site-footer.njk' %}
 	</body>
 </html>

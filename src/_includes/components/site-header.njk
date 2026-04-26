@@ -1,0 +1,20 @@
+<header class="site-header">
+	<div class="site-header-inner wrapper">
+		<nav class="site-nav">
+			<ul class="cluster" role="list">
+				<li>
+					<a href="/" {% if page.url == '/' %} aria-current="page" {% endif %}>
+						Home
+					</a>
+				</li>
+				<li>
+					<a href="/#projects" {% if page.url.startsWith('/projects/') %} data-state="active" {% endif %}>
+						Projects
+					</a>
+				</li>
+				<li><a href="https://arpit.blog/">Blog</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
