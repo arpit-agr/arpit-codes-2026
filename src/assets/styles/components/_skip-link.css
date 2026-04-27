@@ -4,9 +4,8 @@
 			display: block;
 			inline-size: fit-content;
 
-			font-size: var(--step-0);
-			font-weight: var(--font-weight-medium);
-			text-transform: uppercase;
+			font-size: var(--site-header-link-font-size);
+			font-weight: var(--site-header-link-font-weight);
 		}
 
 		&:focus-within {

@@ -2,6 +2,8 @@
 	:root {
 		--site-header-padding-block: var(--space-s);
 		--site-header-height: calc(1em + (2 * var(--site-header-padding-block)));
+		--site-header-link-font-size: 0.8333em;
+		--site-header-link-font-weight: var(--font-weight-medium);
 		--target-margin-block: var(--site-header-height);
 	}
 

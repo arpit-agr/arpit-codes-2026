@@ -11,8 +11,8 @@
 			--link-decoration-line: none;
 
 			display: block;
-			font-size: 0.8333em;
-			font-weight: var(--font-weight-medium);
+			font-size: var(--site-header-link-font-size);
+			font-weight: var(--site-header-link-font-weight);
 
 			&:hover {
 				--link-decoration-line: underline;
