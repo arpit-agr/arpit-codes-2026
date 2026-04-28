@@ -65,7 +65,7 @@
 
 			/* applied the sidebar layout manually */
 			.desc-container {
-				--flow-space: var(--space-l);
+				--flow-space: var(--space-l-xl);
 				--sidebar-gap: 0 var(--sidebar-column-gap);
 
 				@supports not (text-box: trim-both cap alphabetic) {
