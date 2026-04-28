@@ -89,7 +89,7 @@
 
 		/* font */
 		--font-display:
-			"Jakob Semi-Condensed", "Adjusted Arial Narrow Fallback", system-ui, sans-serif;
+			"Jakob Semi-Condensed", "Adjusted Impact Fallback", system-ui, sans-serif;
 		--font-sans: "Inter", "Adjusted Arial Fallback", ui-sans-serif, system-ui, sans-serif;
 		--font-mono: ui-monospace, monospace;
 		--font-weight-normal: 400;
