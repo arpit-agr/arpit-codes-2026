@@ -35,15 +35,19 @@
 	.project-list {
 		--grid-item-min: min(26ch, 100%);
 		--grid-gap: var(--space-l);
+	}
 
-		> li {
-			container-type: inline-size;
-		}
+	.project-card-container {
+		container-type: inline-size;
+	}
+
+	.project-card-container,
+	.project-card {
+		block-size: 100%;
 	}
 
 	.project-card {
 		position: relative;
-		block-size: 100%;
 		display: grid;
 		grid-template-rows: 1fr 1fr;
 		row-gap: var(--space-m);
@@ -71,7 +75,7 @@
 		grid-row: span 3;
 		display: grid;
 		grid-template-rows: auto auto 1fr;
-		row-gap: var(--space-s);
+		row-gap: var(--space-m);
 
 		> *:not(h3) {
 			font-size: 0.8333em;
