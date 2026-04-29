@@ -35,15 +35,19 @@
 	.project-list {
 		--grid-item-min: min(26ch, 100%);
 		--grid-gap: var(--space-l);
+
+		/*
+			- grid on li + its child stretches .project-card to equal height without block-size
+			- block-size: 100% or stretch breaks when an ancestor lacks a definite block size.
+		*/
+		> li,
+		> li > * {
+			display: grid;
+		}
 	}
 
 	.project-card-container {
 		container-type: inline-size;
-	}
-
-	.project-card-container,
-	.project-card {
-		block-size: 100%;
 	}
 
 	.project-card {
