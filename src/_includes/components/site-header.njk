@@ -1,6 +1,7 @@
 <header class="site-header">
+	{% include 'components/skip-link.njk' %}
 	<div class="site-header-inner wrapper">
-		<nav class="site-nav">
+		<nav class="site-nav" aria-label="main">
 			<ul class="cluster" role="list">
 				<li>
 					<a href="/" {% if page.url == '/' %} aria-current="page" {% endif %}>

@@ -16,7 +16,7 @@
 			}
 		}
 
-		[aria-labelledby="socials"] {
+		[aria-labelledby="socials-heading"] {
 			font-size: var(--step-0);
 
 			a {
