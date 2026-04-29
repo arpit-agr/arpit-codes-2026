@@ -1,11 +1,13 @@
-<h3 id="socials" class="visually-hidden">Socials</h3>
-<ul class="cluster" role="list" aria-labelledby="socials">
-	{%- for social in socials %}
-	<li>
-		<a href="{{ social.url }}">
-			{{ social.svg | safe }}
-			<span>{{ social.name }}</span>
-		</a>
-	</li>
-	{%- endfor %}
-</ul>
+<section aria-labelledby="socials-heading">
+	<h3 id="socials-heading" class="visually-hidden">Socials</h3>
+	<ul class="cluster" role="list" aria-labelledby="socials">
+		{%- for social in socials %}
+		<li>
+			<a href="{{ social.url }}">
+				{{ social.svg | safe }}
+				<span>{{ social.name }}</span>
+			</a>
+		</li>
+		{%- endfor %}
+	</ul>
+</section>
