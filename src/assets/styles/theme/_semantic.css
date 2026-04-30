@@ -2,7 +2,7 @@
 	:root {
 		--measure: 60ch;
 		--wrapper-max-width: 64rem;
-		--wrapper-padding-inline: var(--space-m);
+		--wrapper-padding-inline: var(--space-m-l);
 		--region-space: var(--space-l-xl);
 
 		--cluster-gap: var(--space-s);

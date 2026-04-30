@@ -3,9 +3,10 @@
 		/*
 			there's a bug in Safari that affects the layout
 			and removing the max-inline-size on the <p> elements fixes it
-			the line lengths are still readable on larger viewports
 		*/
-		--measure: none;
+		@supports (font: -apple-system-body) {
+			--measure: none;
+		}
 
 		main {
 			--sidebar-row-gap: var(--space-l);
