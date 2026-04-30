@@ -1,35 +1,7 @@
 @layer components {
-	#contact {
-		--stack-gap: 1lh;
-
-		[href^="mailto"] {
-			--link-decoration-line: none;
-
-			display: inline-block;
-			padding: 0.5em;
-			border: var(--btn-border-width, 1px) var(--btn-border-style, solid)
-				var(--btn-border-color, #0000);
-			border-radius: var(--radius-s);
-
-			&:hover {
-				--link-decoration-line: underline;
-			}
-		}
-
-		[aria-labelledby="socials-heading"] {
-			font-size: var(--step-0);
-
-			a {
-				display: inline-flex;
-				align-items: center;
-				gap: 0.5ch;
-
-				svg {
-					path {
-						fill: currentColor;
-					}
-				}
-			}
-		}
+	[href^="mailto"] {
+		--flow-space: var(--space-m);
+		font-family: var(--font-display);
+		text-transform: uppercase;
 	}
 }

@@ -36,10 +36,12 @@ pageClass: homepage
 	</section>
 
 	<!--about section-->
-	<section class="region" id="about">
+	<section class="region">
 		<div class="wrapper">
 			<div class="sidebar">
-				<h2>About</h2>
+				<heading-anchors>
+					<h2 id="about">About</h2>
+				</heading-anchors>
 			</div>
 			<div class="flow text-box-trim-both">
 				<!--origin story-->
@@ -70,10 +72,12 @@ pageClass: homepage
 	</section>
 
 	<!--projects section-->
-	<section class="flow region" id="projects">
+	<section class="flow region">
 		<div class="wrapper">
 			<div class="sidebar">
-				<h2>Projects</h2>
+				<heading-anchors>
+					<h2 id="projects">Projects</h2>
+				</heading-anchors>
 			</div>
 			<div>
 				<p class="text-box-trim-both text-balance">
@@ -90,28 +94,5 @@ pageClass: homepage
 	</section>
 
 	<!--contact section-->
-	<section class="region" id="contact">
-		<div class="wrapper">
-			<div class="sidebar">
-				<h2>Get in touch</h2>
-			</div>
-			<div class="flow text-box-trim-both">
-				<p class="text-balance">
-					I'm currently looking for frontend development or design engineering
-					roles in Mumbai or remote. If you're hiring, have a question, or just
-					want to say hello, I'd like to hear from you.
-				</p>
-				<div class="stack">
-					<a
-						class="btn text-box-trim-both"
-						href="mailto:hello@arpit.codes"
-						data-theme="inverted"
-					>
-						hello@arpit.codes
-					</a>
-					{% include 'components/socials.njk' %}
-				</div>
-			</div>
-		</div>
-	</section>
+	{% include 'components/contact.njk' %}
 </main>

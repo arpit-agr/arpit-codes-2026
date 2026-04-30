@@ -20,6 +20,8 @@
 		--step-9-8: clamp(4.6438rem, 2.8687rem + 8.875vw, 9.9688rem);
 		/* @link https://utopia.fyi/clamp/calculator?a=320,1280,35.83—50.52 */
 		--step-5-4: clamp(2.2394rem, 1.9333rem + 1.5302vw, 3.1575rem);
+		/* @link https://utopia.fyi/clamp/calculator?a=320,1280,29.86—37.9 */
+		--step-4-3: clamp(1.8663rem, 1.6988rem + 0.8375vw, 2.3688rem);
 		/* @link https://utopia.fyi/clamp/calculator?a=320,1280,24.88—28.43 */
 		--step-3-2: clamp(1.555rem, 1.481rem + 0.3698vw, 1.7769rem);
 
@@ -101,9 +103,9 @@
 		--leading-snug: 1.265625;
 		--leading-normal: 1.423828125;
 		--leading-relaxed: 1.6018066406;
-		--tracking-tight: -0.025em;
+		--tracking-tight: -0.0125em;
 		--tracking-normal: 0em;
-		--tracking-wide: 0.025em;
+		--tracking-wide: 0.0125em;
 		--font-smoothing: auto;
 
 		@media (prefers-color-scheme: dark) {

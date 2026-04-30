@@ -2,7 +2,7 @@
 <ul class="cluster" role="list" aria-labelledby="socials-heading">
 	{%- for social in socials %}
 	<li>
-		<a href="{{ social.url }}">
+		<a class="link-with-icon step-0" href="{{ social.url }}">
 			{{ social.svg | safe }}
 			<span>{{ social.name }}</span>
 		</a>

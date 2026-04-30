@@ -1,9 +1,11 @@
 @layer theme.components {
 	:root {
 		--site-header-padding-block: var(--space-s);
-		--site-header-height: calc(1em + (2 * var(--site-header-padding-block)));
 		--site-header-link-font-size: 0.8333em;
 		--site-header-link-font-weight: var(--font-weight-medium);
+		--site-header-height: calc(
+			calc(var(--step-1) * 0.8333) + (2 * var(--site-header-padding-block))
+		);
 		--target-margin-block: var(--site-header-height);
 	}
 
@@ -14,13 +16,13 @@
 		--link-decoration-style-hover: solid;
 		--link-decoration-color: currentColor;
 		--link-decoration-color-hover: currentColor;
-		--link-decoration-thickness: max(var(--border-width-thin), (0.0625 * 1rem));
+		--link-decoration-thickness: max(var(--border-width-thin), (2 * 0.0625 * 1rem));
 		--link-decoration-thickness-hover: max(
 			var(--border-width-medium),
 			3 * (0.0625 * 1rem),
 			2 * (0.0625 * 1em)
 		);
-		--link-underline-offset: 0.2em;
+		--link-underline-offset: 0.15em;
 	}
 
 	.btn,

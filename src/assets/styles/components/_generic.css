@@ -10,6 +10,10 @@
 		}
 	}
 
+	heading-anchors {
+		--target-margin-block: calc(var(--site-header-height) + var(--region-space));
+	}
+
 	h1,
 	h2,
 	h3 {
@@ -25,7 +29,9 @@
 		font-size: var(--step-5-4);
 	}
 
-	h3 {
+	h3,
+	.heading-3 {
 		font-size: var(--step-3-2);
+		letter-spacing: var(--tracking-wide);
 	}
 }

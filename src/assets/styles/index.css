@@ -21,6 +21,7 @@
 @import "components/_project-list.css";
 @import "components/_contact.css";
 @import "components/_site-footer.css";
+@import "components/_link-with-icon.css";
 
 @import "utilities/_region.css";
 @import "utilities/_visually-hidden.css";
