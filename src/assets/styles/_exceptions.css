@@ -53,19 +53,19 @@
 				block-size: 0.7em;
 				inline-size: auto;
 				outline: var(--border-width-thin) var(--border-style) currentColor;
-				mask: radial-gradient(0.7rem at 0.7rem 0.7rem, #0000 98%, #000) calc(-1 * 0.7rem)
+				/*mask: radial-gradient(0.7rem at 0.7rem 0.7rem, #0000 98%, #000) calc(-1 * 0.7rem)
 					calc(-1 * 0.7rem);
 
 				@supports (corner-shape: scoop) {
 					mask: unset;
 					border-radius: var(--radius-l);
 					corner-shape: scoop;
-				}
+				}*/
 			}
 
 			/* applied the sidebar layout manually */
 			.desc-container {
-				--flow-space: var(--space-l-xl);
+				--flow-space: var(--space-l);
 				--sidebar-gap: 0 var(--sidebar-column-gap);
 
 				@supports not (text-box: trim-both cap alphabetic) {
