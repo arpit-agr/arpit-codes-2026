@@ -10,10 +10,6 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/assets/fonts");
 	eleventyConfig.addPassthroughCopy("./src/assets/img/og.jpeg");
 	eleventyConfig.addPassthroughCopy({ "./src/assets/favicons": "/" });
-	eleventyConfig.addPassthroughCopy({
-		"node_modules/@zachleat/heading-anchors/heading-anchors.js":
-			"assets/scripts/heading-anchors.js",
-	});
 
 	// Lightning CSS
 	eleventyConfig.addTemplateFormats("css");

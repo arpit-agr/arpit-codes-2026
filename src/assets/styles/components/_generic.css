@@ -10,10 +10,6 @@
 		}
 	}
 
-	heading-anchors {
-		--target-margin-block: calc(var(--site-header-height) + var(--region-space));
-	}
-
 	h1,
 	h2,
 	h3 {

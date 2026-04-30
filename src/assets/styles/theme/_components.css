@@ -6,7 +6,7 @@
 		--site-header-height: calc(
 			calc(var(--step-1) * 0.8333) + (2 * var(--site-header-padding-block))
 		);
-		--target-margin-block: var(--site-header-height);
+		--target-margin-block: calc(var(--site-header-height) + var(--region-space));
 	}
 
 	a,
