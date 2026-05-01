@@ -69,9 +69,9 @@
 
 		@media (hover: hover) {
 			&:has(a:hover) {
-				outline-width: var(--border-width-thin);
+				outline-width: var(--border-width-medium);
 				outline-color: currentColor;
-				outline-offset: calc(-1 * var(--border-width-thin));
+				outline-offset: calc(-1 * var(--border-width-medium));
 			}
 		}
 	}
