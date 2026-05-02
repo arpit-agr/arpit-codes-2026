@@ -1,4 +1,7 @@
-<div class="project-card-container">
+<div
+	class="project-card-container"
+	{% if project.type %} data-project-type={{project.type}} {% endif %}
+>
 	<article class="project-card">
 		<div class="project-card-content">
 			<h3>{{ project.title }}</h3>

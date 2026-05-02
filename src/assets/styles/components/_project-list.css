@@ -51,6 +51,85 @@
 		container-type: inline-size;
 	}
 
+	[data-project-type="personal"] {
+		position: relative;
+
+		&::before {
+			content: attr(data-project-type) " project";
+			position: absolute;
+			inset-inline-end: 0;
+			inset-block-start: 0;
+			translate: calc(1 / 2 * var(--wrapper-padding-inline))
+				calc(-2 / 3 * var(--wrapper-padding-inline));
+
+			display: grid;
+			place-content: center;
+			text-align: center;
+
+			inline-size: 10ch;
+			aspect-ratio: 1;
+
+			rotate: 12deg;
+			clip-path: polygon(
+				100% 50%,
+				91.48% 56.57%,
+				97.55% 65.45%,
+				87.42% 69.07%,
+				90.45% 79.39%,
+				79.7% 79.7%,
+				79.39% 90.45%,
+				69.07% 87.42%,
+				65.45% 97.55%,
+				56.57% 91.48%,
+				50% 100%,
+				43.43% 91.48%,
+				34.55% 97.55%,
+				30.93% 87.42%,
+				20.61% 90.45%,
+				20.3% 79.7%,
+				9.55% 79.39%,
+				12.58% 69.07%,
+				2.45% 65.45%,
+				8.52% 56.57%,
+				0% 50%,
+				8.52% 43.43%,
+				2.45% 34.55%,
+				12.58% 30.93%,
+				9.55% 20.61%,
+				20.3% 20.3%,
+				20.61% 9.55%,
+				30.93% 12.58%,
+				34.55% 2.45%,
+				43.43% 8.52%,
+				50% 0%,
+				56.57% 8.52%,
+				65.45% 2.45%,
+				69.07% 12.58%,
+				79.39% 9.55%,
+				79.7% 20.3%,
+				90.45% 20.61%,
+				87.42% 30.93%,
+				97.55% 34.55%,
+				91.48% 43.43%
+			);
+
+			background: var(--text-color);
+			color: var(--body-bg-color);
+			font-size: var(--step--1);
+			font-weight: var(--font-weight-semibold);
+			letter-spacing: var(--tracking-wide);
+			text-transform: capitalize;
+			-webkit-font-smoothing: antialiased;
+
+			z-index: 1;
+			pointer-events: none;
+
+			@media (prefers-color-scheme: dark) {
+				-webkit-font-smoothing: auto;
+			}
+		}
+	}
+
 	.project-card {
 		position: relative;
 		display: grid;
@@ -61,7 +140,8 @@
 		outline-offset: calc(-1 * var(--border-width-hairline));
 		border-radius: var(--radius-s);
 		overflow: clip;
-		transition: outline-color var(--transition-normal);
+		transition: var(--transition-normal);
+		transition-property: outline-width, outline-offset;
 
 		@supports not (text-box: trim-both cap alphabetic) {
 			row-gap: var(--space-xs);
@@ -138,6 +218,7 @@
 
 	@media screen and (width >= 72rem) {
 		.project-list-container {
+			--flow-space: 0px;
 			max-inline-size: unset;
 			padding-inline: unset;
 		}
@@ -145,6 +226,7 @@
 		.project-list-scrollport {
 			--_dynamic-gutter: calc((100cqi - var(--wrapper-max-width)) / 2);
 
+			padding-block-start: var(--space-l);
 			display: grid;
 			grid-template-columns:
 				var(--_dynamic-gutter)
