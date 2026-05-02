@@ -138,7 +138,6 @@
 		padding: var(--space-m);
 		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
 		outline-offset: calc(-1 * var(--border-width-hairline));
-		border-radius: var(--radius-s);
 		overflow: clip;
 		transition: var(--transition-normal);
 		transition-property: outline-width, outline-offset;
@@ -275,7 +274,6 @@
 				border: none;
 				outline: var(--border-width-hairline) var(--border-style) var(--border-color);
 				outline-offset: calc(-1 * var(--border-width-hairline));
-				border-radius: var(--radius-s);
 				background: none;
 
 				font-family: var(--font-body);
