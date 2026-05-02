@@ -280,15 +280,15 @@
 				font-size: var(--step-2);
 				cursor: pointer;
 
-				transition-property: opacity, scale, border-color;
-				transition-duration: var(--transition-normal);
+				transition-property: opacity, scale, border-color, outline-width, outline-offset;
+				transition-duration: var(--transition-fast);
 			}
 
 			&::scroll-button(*):hover,
 			&::scroll-button(*):focus-visible {
-				outline-width: var(--border-width-thin);
+				outline-width: var(--border-width-medium);
 				outline-color: currentColor;
-				outline-offset: calc(-1 * var(--border-width-thin));
+				outline-offset: calc(-1 * var(--border-width-medium));
 			}
 
 			&::scroll-button(*):active {
