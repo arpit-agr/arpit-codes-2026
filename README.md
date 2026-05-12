@@ -8,6 +8,8 @@ Personal portfolio. Eleventy 3 static site, Lightning CSS for bundling.
 - `npm run build` — production build to `_site/`
 - `npm run preview` — serve the built `_site/` on :8080
 - `npm run clean` — remove `_site/`
+- `npm run format` — run Prettier on all files
+- `npm run format:check` — check formatting without writing
 
 ## Layout
 
@@ -33,6 +35,12 @@ reset → theme → compositions → components → utilities → exceptions
 - **components/** — page-specific styles (`.site-header`, `.project-list`, etc.)
 - **utilities/** — single-purpose helpers (`.region`, `.text-balance`, font features)
 - **exceptions/** — page- or context-scoped overrides (currently homepage-only)
+
+## Formatting
+
+Prettier is the only formatter. `.prettierrc.json` configures it; `.editorconfig` keeps non-Prettier-aware tools aligned. `.njk` is handled via `prettier-plugin-jinja-template`.
+
+Zed format-on-save is configured in `.zed/settings.json` for CSS, JS, and JSON. `.njk` is **not** formatted on save — Zed's HTML handling fights template syntax. Run `npm run format` before committing changes to `.njk` files.
 
 ## Conventions
 
