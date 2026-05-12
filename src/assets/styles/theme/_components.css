@@ -6,7 +6,9 @@
 		--site-header-height: calc(
 			calc(var(--step-1) * 0.8333) + (2 * var(--site-header-padding-block))
 		);
-		--target-margin-block: calc(var(--site-header-height) + var(--region-space));
+		--target-margin-block: calc(
+			var(--site-header-height) + var(--region-space)
+		);
 	}
 
 	a,
@@ -16,7 +18,10 @@
 		--link-decoration-style-hover: solid;
 		--link-decoration-color: currentColor;
 		--link-decoration-color-hover: currentColor;
-		--link-decoration-thickness: max(var(--border-width-thin), (2 * 0.0625 * 1rem));
+		--link-decoration-thickness: max(
+			var(--border-width-thin),
+			(2 * 0.0625 * 1rem)
+		);
 		--link-decoration-thickness-hover: max(
 			var(--border-width-medium),
 			3 * (0.0625 * 1rem),
@@ -68,7 +73,11 @@
 		--code-padding-inline: var(--space-4xs);
 		--code-border-width: var(--border-width-thin);
 		--code-border-style: var(--border-style);
-		--code-border-color: color-mix(in oklch, var(--text-color, currentColor) 5%, #0000);
+		--code-border-color: color-mix(
+			in oklch,
+			var(--text-color, currentColor) 5%,
+			#0000
+		);
 		--code-radius: var(--radius-none);
 		--code-color-bg: color-mix(in oklch, currentColor 5%, transparent);
 		--code-line-height: var(--leading-tight);

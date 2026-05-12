@@ -25,12 +25,12 @@
 			}
 
 			@font-face {
-		    font-family: 'Adjusted Impact Fallback';
-		    src: local(Impact);
-		    size-adjust: 81%;
-		    ascent-override: normal;
-		    descent-override: normal;
-		    line-gap-override: normal;
+				font-family: "Adjusted Impact Fallback";
+				src: local(Impact);
+				size-adjust: 81%;
+				ascent-override: normal;
+				descent-override: normal;
+				line-gap-override: normal;
 			}
 
 			@font-face {
@@ -80,13 +80,12 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<!--TODO: add web manifest-->
 		<!--<link rel="manifest" href="/my.webmanifest" />-->
-		<meta name="generator" content="{{ eleventy.generator }}">
+		<meta name="generator" content="{{ eleventy.generator }}" />
 	</head>
 	<body class="{{ pageClass or '' }} character-variants-5">
 		{% include 'components/site-header.njk' %}
 
 		{{ content | safe }}
-
 		{% include 'components/site-footer.njk' %}
 	</body>
 </html>

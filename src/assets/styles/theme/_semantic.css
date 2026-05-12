@@ -25,7 +25,10 @@
 
 		/* text */
 		--text-color: light-dark(var(--black), var(--white));
-		--secondary-text-color: light-dark(var(--black-tint-25), var(--black-tint-80));
+		--secondary-text-color: light-dark(
+			var(--black-tint-25),
+			var(--black-tint-80)
+		);
 
 		/* brand color */
 		--brand-color: var(--blue);

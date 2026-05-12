@@ -4,12 +4,15 @@
 		<nav class="site-nav" aria-label="main">
 			<ul class="cluster" role="list">
 				<li>
-					<a href="/" {% if page.url == '/' %} aria-current="page" {% endif %}>
+					<a href="/" {% if page.url == '/' %}aria-current="page"{% endif %}>
 						Home
 					</a>
 				</li>
 				<li>
-					<a href="/#projects" {% if page.url.startsWith('/projects/') %} data-state="active" {% endif %}>
+					<a
+						href="/#projects"
+						{% if page.url.startsWith('/projects/') %}data-state="active"{% endif %}
+					>
 						Projects
 					</a>
 				</li>

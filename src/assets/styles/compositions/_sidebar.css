@@ -38,6 +38,7 @@
 	:has(> .sidebar) > :only-child,
 	:has(> .sidebar) > :nth-child(3) {
 		--error: "Sidebar layouts must include exactly two child elements.";
-		outline: var(--border-width-thin, 1px) var(--border-style, solid) var(--error-color);
+		outline: var(--border-width-thin, 1px) var(--border-style, solid)
+			var(--error-color);
 	}
 }

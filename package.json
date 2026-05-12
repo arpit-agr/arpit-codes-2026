@@ -7,7 +7,9 @@
 		"clean": "rm -rf _site",
 		"build": "eleventy",
 		"start": "eleventy --serve",
-		"preview": "serve _site -l 8080"
+		"preview": "serve _site -l 8080",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
 	},
 	"repository": {
 		"type": "git",
@@ -31,6 +33,8 @@
 	"devDependencies": {
 		"browserslist": "^4.28.2",
 		"lightningcss": "^1.32.0",
+		"prettier": "^3.8.3",
+		"prettier-plugin-jinja-template": "^2.2.0",
 		"serve": "^14.2.6"
 	}
 }

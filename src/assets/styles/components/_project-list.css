@@ -118,7 +118,8 @@
 		grid-template-rows: 1fr;
 		row-gap: var(--space-m);
 		padding: var(--space-m);
-		outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+		outline: var(--border-width-hairline) var(--border-style)
+			var(--border-color);
 		outline-offset: calc(-1 * var(--border-width-hairline));
 		overflow: clip;
 		transition: var(--transition-normal);
@@ -177,7 +178,8 @@
 			object-fit: cover;
 			object-position: top;
 			filter: drop-shadow(
-				0rem 1ex 1ex light-dark(oklch(from var(--text-color) l c h / 0.25), var(--black))
+				0rem 1ex 1ex
+					light-dark(oklch(from var(--text-color) l c h / 0.25), var(--black))
 			);
 		}
 	}
@@ -254,7 +256,8 @@
 				padding: unset;
 				margin-block-start: var(--sidebar-row-gap);
 				border: none;
-				outline: var(--border-width-hairline) var(--border-style) var(--border-color);
+				outline: var(--border-width-hairline) var(--border-style)
+					var(--border-color);
 				outline-offset: calc(-1 * var(--border-width-hairline));
 				background: none;
 
@@ -262,7 +265,8 @@
 				font-size: var(--step-2);
 				cursor: pointer;
 
-				transition-property: opacity, scale, border-color, outline-width, outline-offset;
+				transition-property:
+					opacity, scale, border-color, outline-width, outline-offset;
 				transition-duration: var(--transition-fast);
 			}
 

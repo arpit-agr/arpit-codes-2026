@@ -309,7 +309,8 @@
 	textarea,
 	select {
 		&:focus-visible {
-			box-shadow: inset 0 0 0 var(--fc-border-width, 1px) var(--focus-color, canvasText);
+			box-shadow: inset 0 0 0 var(--fc-border-width, 1px)
+				var(--focus-color, canvasText);
 		}
 	}
 
@@ -492,12 +493,16 @@
 
 		&::-webkit-color-swatch {
 			border: none;
-			border-radius: calc(var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3);
+			border-radius: calc(
+				var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3
+			);
 		}
 
 		&::-moz-color-swatch {
 			border: none;
-			border-radius: calc(var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3);
+			border-radius: calc(
+				var(--fc-radius, 0.25rem) - var(--fc-border-width, 1px) * 3
+			);
 		}
 	}
 
@@ -853,8 +858,8 @@
 	td {
 		padding-block: var(--table-cell-padding-block, 0.25rem);
 		padding-inline: 0 var(--table-cell-padding-inline, 0.5rem);
-		border-block-end: var(--table-border-width, 1px) var(--table-border-style, solid)
-			var(--table-border-color, currentColor);
+		border-block-end: var(--table-border-width, 1px)
+			var(--table-border-style, solid) var(--table-border-color, currentColor);
 		text-align: start;
 		vertical-align: text-top;
 

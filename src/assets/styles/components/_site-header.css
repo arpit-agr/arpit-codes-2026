@@ -2,7 +2,8 @@
 	.site-header {
 		position: sticky;
 		inset-block-start: 0;
-		border-block-end: var(--border-width-hairline) var(--border-style) var(--border-color);
+		border-block-end: var(--border-width-hairline) var(--border-style)
+			var(--border-color);
 		background: var(--body-bg-color);
 		z-index: 1;
 	}
