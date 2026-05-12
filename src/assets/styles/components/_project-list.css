@@ -12,24 +12,6 @@
 
 	.project-list-scrollport {
 		--sidebar-gap: 0 var(--sidebar-column-gap);
-
-		/* applied the sidebar layout manually */
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--sidebar-gap, 1rem);
-		align-items: var(--sidebar-vertical-alignment, flex-start);
-
-		&::before {
-			content: "";
-			flex-basis: var(--sidebar-content-min-width, 20rem);
-			flex-grow: 1;
-		}
-
-		> * {
-			flex-basis: 0;
-			flex-grow: 99999;
-			min-inline-size: var(--sidebar-wrap-at, 50%);
-		}
 	}
 
 	.project-list {

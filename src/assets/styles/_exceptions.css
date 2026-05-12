@@ -60,23 +60,6 @@
 				@supports not (text-box: trim-both cap alphabetic) {
 					--flow-space: 0px;
 				}
-
-				display: flex;
-				flex-wrap: wrap;
-				gap: var(--sidebar-gap, 1rem);
-				align-items: var(--sidebar-vertical-alignment, flex-start);
-
-				&::before {
-					content: "";
-					flex-basis: var(--sidebar-content-min-width, 20rem);
-					flex-grow: 1;
-				}
-
-				> div {
-					flex-basis: 0;
-					flex-grow: 99999;
-					min-inline-size: var(--sidebar-wrap-at, 50%);
-				}
 			}
 		}
 	}

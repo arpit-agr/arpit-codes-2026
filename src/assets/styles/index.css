@@ -13,6 +13,7 @@
 @import "compositions/_stack.css";
 @import "compositions/_switcher.css";
 @import "compositions/_wrapper.css";
+@import "compositions/_with-ghost-sidebar.css";
 
 @import "components/_generic.css";
 @import "components/_skip-link.css";
