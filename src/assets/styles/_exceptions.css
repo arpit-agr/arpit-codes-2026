@@ -4,7 +4,7 @@
 			there's a bug in Safari that affects the layout
 			and removing the max-inline-size on the <p> elements fixes it
 
-			update: 11th May 2026
+			update: 12th May 2026
 			fixed in Safari Technology Preview Release 243 (WebKit 22625.1.15.19.1)
 		*/
 		@supports (font: -apple-system-body) {
