@@ -4,7 +4,7 @@
 	{%- for social in socials %}
 	<li>
 		<a class="link-with-icon step-0" href="{{ social.url }}">
-			{{ social.svg | safe }}
+			{% include 'icons/' + social.icon + '.svg' %}
 			<span>{{ social.name }}</span>
 		</a>
 	</li>

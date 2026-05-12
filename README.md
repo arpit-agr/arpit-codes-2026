@@ -37,6 +37,7 @@ reset → theme → compositions → components → utilities → exceptions
 ## Conventions
 
 - Add a project: append to `src/_data/projects.js` and drop a thumbnail in `src/assets/img/projects/`
-- Add a social link: append to `src/_data/socials.js` (SVG inline)
+- Add a social link: append to `src/_data/socials.js` with an `icon` slug matching a file in `src/_includes/icons/`
+- Add an icon: drop an SVG in `src/_includes/icons/<slug>.svg`; reference by slug from data, or `{% include 'icons/<slug>.svg' %}` directly from a template
 - New layout pattern → `compositions/`. New page-specific styling → `components/`. One-off → `exceptions/`
 - Workarounds get a dated comment naming the bug and the version that fixed it (see `_exceptions.css` for the pattern)
