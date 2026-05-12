@@ -10,4 +10,4 @@
 .cache
 
 # macOS related files
-.DS_Store
+**/.DS_Store
