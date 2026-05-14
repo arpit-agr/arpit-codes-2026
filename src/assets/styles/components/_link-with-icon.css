@@ -1,7 +1,7 @@
 .link-with-icon {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5ch;
+	gap: 0.25ch;
 
 	svg path {
 		fill: currentColor;
