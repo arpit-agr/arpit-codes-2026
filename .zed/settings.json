@@ -1,7 +1,10 @@
 {
+	"file_types": {
+		"HTML": ["svg"],
+	},
 	"languages": {
 		"CSS": { "format_on_save": "on" },
 		"JavaScript": { "format_on_save": "on" },
-		"JSON": { "format_on_save": "on" }
-	}
+		"JSON": { "format_on_save": "on" },
+	},
 }
