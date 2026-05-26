@@ -24,6 +24,7 @@
 			h1 {
 				row-gap: var(--space-s);
 				font-size: var(--step-9-8);
+				letter-spacing: -0.00625em;
 
 				.first-name {
 					position: relative;
