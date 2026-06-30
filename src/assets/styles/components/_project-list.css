@@ -292,7 +292,7 @@
 			}
 
 			&::scroll-button(left) {
-				content: "\E1D2" / "Scroll Left";
+				content: "‹" / "Scroll Left";
 				margin-inline-start: calc(
 					var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
 						var(--sidebar-content-min-width) + var(--sidebar-column-gap)
@@ -301,7 +301,7 @@
 			}
 
 			&::scroll-button(right) {
-				content: "\E1D7" / "Scroll Right";
+				content: "›" / "Scroll Right";
 			}
 		}
 
