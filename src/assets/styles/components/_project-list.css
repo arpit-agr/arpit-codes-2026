@@ -10,14 +10,12 @@
 		padding-inline: var(--wrapper-padding-inline, 1lh);
 	}
 
-	.project-list-scrollport {
-		--sidebar-gap: 0 var(--sidebar-column-gap);
-	}
-
 	.project-list {
-		--grid-item-min: min(var(--sidebar-content-min-width, 20rem), 100%);
-		--grid-gap: var(--space-l);
-		/*grid-auto-rows: 1fr;*/
+		--grid-item-min: min(
+			19rem,
+			calc(100% - (1.5 * var(--wrapper-padding-inline)))
+		);
+		--grid-gap: var(--wrapper-padding-inline);
 
 		/*
 			- grid on li + its child stretches .project-card to equal height without block-size
@@ -25,6 +23,7 @@
 		*/
 		> li,
 		> li > * {
+			--measure: none;
 			display: grid;
 		}
 	}
@@ -190,7 +189,7 @@
 	.project-card-content {
 		display: grid;
 		grid-template-rows: auto auto 1fr;
-		row-gap: var(--space-m);
+		row-gap: var(--space-s-m);
 
 		> *:not(h3) {
 			font-size: 0.8333em;
@@ -203,9 +202,6 @@
 		}
 
 		a {
-			justify-self: start;
-			align-self: end;
-
 			&::before {
 				content: "";
 				position: absolute;
@@ -218,6 +214,7 @@
 	.project-card-thumbnail {
 		position: relative;
 		aspect-ratio: 1.67;
+		min-block-size: 5lh;
 		z-index: -1;
 
 		img {
@@ -233,14 +230,18 @@
 		}
 	}
 
-	@container (width > 40ch) {
+	@container (width > 30rem) {
 		.project-card {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-			column-gap: var(--sidebar-column-gap);
+			grid-template-columns: 25ch minmax(0, 1fr);
+			column-gap: var(--grid-gap);
 
 			> * {
 				grid-row: 1/-1;
 			}
+		}
+
+		.project-card-content a {
+			align-self: end;
 		}
 
 		.project-card-thumbnail {
@@ -248,38 +249,24 @@
 		}
 	}
 
-	@media screen and (width >= 72rem) {
+	@media screen and (width < 54rem) {
 		.project-list-container {
 			--flow-space: 0px;
-			max-inline-size: unset;
 			padding-inline: unset;
 		}
 
 		.project-list-scrollport {
-			--_dynamic-gutter: calc((100cqi - var(--wrapper-max-width)) / 2);
-
 			padding-block-start: var(--space-l);
+
 			display: grid;
 			grid-template-columns:
-				var(--_dynamic-gutter)
 				var(--wrapper-padding-inline)
-				var(--sidebar-content-min-width, 20rem)
-				var(--sidebar-column-gap)
 				1fr
-				var(--wrapper-padding-inline)
-				var(--_dynamic-gutter);
+				var(--wrapper-padding-inline);
 			gap: 0px;
-			/* the outline gets cut off at the bottom on safari
-			a little bit of padding fixes it */
 			padding-block-end: var(--border-width-hairline);
 			overflow-x: auto;
-			scroll-padding-inline-start: calc(
-				var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
-					var(--sidebar-content-min-width) + var(--sidebar-column-gap)
-			);
-			scroll-padding-inline-end: calc(
-				max(0px, var(--_dynamic-gutter)) + var(--wrapper-padding-inline)
-			);
+			scroll-padding-inline: var(--wrapper-padding-inline);
 			scroll-snap-type: x mandatory;
 			scrollbar-width: none;
 			overscroll-behavior-inline: contain;
@@ -293,7 +280,7 @@
 			}
 
 			> * {
-				grid-column: 5/6;
+				grid-column: 2/3;
 			}
 
 			&::scroll-button(*) {
@@ -303,7 +290,7 @@
 				block-size: 2.75rem;
 
 				padding: unset;
-				margin-block-start: var(--sidebar-row-gap);
+				margin-block-start: var(--grid-gap);
 				border: none;
 				outline: var(--border-width-hairline) var(--border-style)
 					var(--border-color);
@@ -341,11 +328,8 @@
 
 			&::scroll-button(left) {
 				content: "‹" / "Scroll Left";
-				margin-inline-start: calc(
-					var(--_dynamic-gutter) + var(--wrapper-padding-inline) +
-						var(--sidebar-content-min-width) + var(--sidebar-column-gap)
-				);
-				margin-inline-end: calc(0.5 * var(--sidebar-column-gap));
+				margin-inline-start: var(--wrapper-padding-inline);
+				margin-inline-end: var(--grid-gap);
 			}
 
 			&::scroll-button(right) {
@@ -354,16 +338,12 @@
 		}
 
 		.project-list {
-			--grid-gap: 0px var(--sidebar-column-gap);
-
 			grid-template-columns: unset;
-			grid-template-rows: 1fr;
 			grid-auto-flow: column;
 			grid-auto-columns: var(--grid-item-min);
 
 			> li {
 				scroll-snap-align: start;
-				/*scroll-snap-stop: always;*/
 
 				&:last-child {
 					scroll-snap-align: end;
