@@ -15,7 +15,7 @@
 	}
 
 	.project-list {
-		--grid-item-min: min(26ch, 100%);
+		--grid-item-min: min(var(--sidebar-content-min-width, 20rem), 100%);
 		--grid-gap: var(--space-l);
 		/*grid-auto-rows: 1fr;*/
 
@@ -48,7 +48,8 @@
 			place-content: center;
 			text-align: center;
 
-			inline-size: 10ch;
+			inline-size: 6em;
+			padding: var(--space-2xs);
 			aspect-ratio: 1;
 
 			rotate: 12deg;
@@ -94,6 +95,54 @@
 				97.55% 34.55%,
 				91.48% 43.43%
 			);
+			@supports (border-shape: shape(from 100% 50%, close)) {
+				clip-path: unset;
+				border: var(--border-width-hairline) var(--border-style)
+					var(--border-color);
+				border-shape: shape(
+					from 100% 50%,
+					line to 91.48% 56.57%,
+					line to 97.55% 65.45%,
+					line to 87.42% 69.07%,
+					line to 90.45% 79.39%,
+					line to 79.7% 79.7%,
+					line to 79.39% 90.45%,
+					line to 69.07% 87.42%,
+					line to 65.45% 97.55%,
+					line to 56.57% 91.48%,
+					line to 50% 100%,
+					line to 43.43% 91.48%,
+					line to 34.55% 97.55%,
+					line to 30.93% 87.42%,
+					line to 20.61% 90.45%,
+					line to 20.3% 79.7%,
+					line to 9.55% 79.39%,
+					line to 12.58% 69.07%,
+					line to 2.45% 65.45%,
+					line to 8.52% 56.57%,
+					line to 0% 50%,
+					line to 8.52% 43.43%,
+					line to 2.45% 34.55%,
+					line to 12.58% 30.93%,
+					line to 9.55% 20.61%,
+					line to 20.3% 20.3%,
+					line to 20.61% 9.55%,
+					line to 30.93% 12.58%,
+					line to 34.55% 2.45%,
+					line to 43.43% 8.52%,
+					line to 50% 0%,
+					line to 56.57% 8.52%,
+					line to 65.45% 2.45%,
+					line to 69.07% 12.58%,
+					line to 79.39% 9.55%,
+					line to 79.7% 20.3%,
+					line to 90.45% 20.61%,
+					line to 87.42% 30.93%,
+					line to 97.55% 34.55%,
+					line to 91.48% 43.43%,
+					close
+				);
+			}
 
 			background: var(--text-color);
 			color: var(--body-bg-color);
@@ -122,8 +171,8 @@
 			var(--border-color);
 		outline-offset: calc(-1 * var(--border-width-hairline));
 		overflow: clip;
-		transition: var(--transition-normal);
-		transition-property: outline-width, outline-offset;
+		/*transition: var(--transition-normal);
+		transition-property: outline-width, outline-offset;*/
 
 		@supports not (text-box: trim-both cap alphabetic) {
 			row-gap: var(--space-xs);
@@ -262,11 +311,10 @@
 				background: none;
 
 				font-family: var(--font-body);
-				font-size: var(--step-2);
+				font-size: var(--step-3);
 				cursor: pointer;
 
-				transition-property:
-					opacity, scale, border-color, outline-width, outline-offset;
+				transition-property: opacity, scale, border-color;
 				transition-duration: var(--transition-fast);
 			}
 
