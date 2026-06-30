@@ -28,6 +28,13 @@
 			2 * (0.0625 * 1em)
 		);
 		--link-underline-offset: 0.15em;
+
+		@media (prefers-color-scheme: dark) {
+			--link-decoration-thickness: max(
+				var(--border-width-thin),
+				(1 * 0.0625 * 1rem)
+			);
+		}
 	}
 
 	.btn,
