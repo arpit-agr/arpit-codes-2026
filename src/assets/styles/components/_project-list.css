@@ -96,7 +96,7 @@
 			);
 			@supports (border-shape: shape(from 100% 50%, close)) {
 				clip-path: none;
-				outline: var(--border-width-medium) var(--border-style);
+				outline: var(--border-width-thin) var(--border-style);
 				border-shape: shape(
 					from 100% 50%,
 					line to 91.48% 56.57%,
