@@ -41,7 +41,7 @@
 		--link-active-color: var(--text-color);
 
 		/* border */
-		--border-color: var(--black-tint-50);
+		--border-color: light-dark(var(--black-tint-80), var(--black-tint-25));
 		--input-border-color: var(--text-color);
 
 		/* focus state */
