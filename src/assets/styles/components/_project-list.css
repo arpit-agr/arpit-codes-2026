@@ -17,6 +17,8 @@
 		);
 		--grid-gap: var(--wrapper-padding-inline);
 
+		grid-auto-rows: 1fr;
+
 		/*
 			- grid on li + its child stretches .project-card to equal height without block-size
 			- block-size: 100% or stretch breaks when an ancestor lacks a definite block size.
@@ -96,7 +98,8 @@
 			);
 			@supports (border-shape: shape(from 100% 50%, close)) {
 				clip-path: none;
-				outline: var(--border-width-thin) var(--border-style);
+				outline: var(--border-width-thin) var(--border-style)
+					var(--border-color);
 				border-shape: shape(
 					from 100% 50%,
 					line to 91.48% 56.57%,
@@ -144,10 +147,11 @@
 
 			background: var(--text-color);
 			color: var(--body-bg-color);
+			font-family: var(--font-display);
 			font-size: var(--step--1);
 			font-weight: var(--font-weight-semibold);
 			letter-spacing: var(--tracking-wide);
-			text-transform: capitalize;
+			text-transform: uppercase;
 			-webkit-font-smoothing: antialiased;
 
 			z-index: 1;
@@ -213,7 +217,7 @@
 	.project-card-thumbnail {
 		position: relative;
 		aspect-ratio: 1.67;
-		min-block-size: 5lh;
+		min-block-size: 5.4lh;
 		z-index: -1;
 
 		img {
@@ -321,7 +325,7 @@
 			}
 
 			&::scroll-button(*):disabled {
-				opacity: 0.37;
+				opacity: 0.67;
 				cursor: not-allowed;
 			}
 
