@@ -76,7 +76,7 @@
 		<!--<link rel="manifest" href="/my.webmanifest" />-->
 		<meta name="generator" content="{{ eleventy.generator }}" />
 	</head>
-	<body class="{{ pageClass or '' }} character-variants-5">
+	<body class="{{ pageClass or '' }}">
 		{% include 'components/site-header.njk' %}
 
 		{{ content | safe }}
