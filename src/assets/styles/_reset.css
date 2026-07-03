@@ -9,8 +9,10 @@
 		margin: 0;
 	}
 
-	@view-transition {
-		navigation: auto;
+	@media (prefers-reduced-motion: no-preference) {
+		@view-transition {
+			navigation: auto;
+		}
 	}
 
 	@media screen {
