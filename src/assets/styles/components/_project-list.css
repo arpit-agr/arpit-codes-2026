@@ -198,11 +198,20 @@
 			font-size: 0.8333em;
 		}
 
-		h3,
-		p {
-			position: relative;
-			z-index: 2;
-		}
+		/*
+			considered Heydon Pickering's inclusive card pattern (h3/p at z-index: 2
+			above the stretched link) to keep card text selectable, but with a
+			stretched link the whole card is the hover target, so raising the text
+			above it makes the card's hover outline drop the instant the cursor
+			crosses into text and pick back up in the gaps -- looks janky. text
+			selection isn't an a11y requirement here, so left the text unraised.
+
+			h3,
+			p {
+				position: relative;
+				z-index: 2;
+			}
+		*/
 
 		a {
 			&::before {
