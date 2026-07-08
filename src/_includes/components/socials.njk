@@ -1,10 +1,9 @@
 <!--TODO: should I group this in a nav element-->
-<h2 id="socials-heading" class="visually-hidden">Socials</h2>
+<h3 id="socials-heading" class="visually-hidden">Socials</h3>
 <ul class="cluster" role="list" aria-labelledby="socials-heading">
 	{%- for social in socials %}
 		<li>
-			<a class="link-with-icon step-0" href="{{ social.url }}">
-				{% include 'icons/' + social.icon + '.svg' %}
+			<a class="step-0" href="{{ social.url }}">
 				<span>{{ social.name }}</span>
 			</a>
 		</li>

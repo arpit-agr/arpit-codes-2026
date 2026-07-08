@@ -1,7 +1,12 @@
 @layer components {
 	[href^="mailto"] {
 		--flow-space: var(--space-m);
+		display: inline-flex;
 		font-family: var(--font-display);
 		text-transform: uppercase;
+	}
+
+	[href^="mailto"] ~ ul {
+		--flow-space: var(--space-s);
 	}
 }
