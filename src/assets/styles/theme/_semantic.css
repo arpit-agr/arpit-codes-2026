@@ -24,7 +24,7 @@
 		--body-bg-color: light-dark(var(--white), var(--black-tint-5));
 
 		/* text */
-		--text-color: light-dark(var(--black), var(--white));
+		--text-color: light-dark(var(--black-tint-5), var(--black-tint-95));
 		--secondary-text-color: light-dark(
 			var(--black-tint-25),
 			var(--black-tint-80)
@@ -45,7 +45,7 @@
 		--input-border-color: var(--text-color);
 
 		/* focus state */
-		--focus-bg-color: var(--orange);
+		--focus-bg-color: var(--fluorescent-green);
 		--focus-color: var(--black);
 
 		/* error state */

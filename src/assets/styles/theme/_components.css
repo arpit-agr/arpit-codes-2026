@@ -17,7 +17,7 @@
 		--link-decoration-style: solid;
 		--link-decoration-style-hover: solid;
 		--link-decoration-color: currentColor;
-		--link-decoration-color-hover: currentColor;
+		--link-decoration-color-hover: var(--fluorescent-green);
 		--link-decoration-thickness: max(
 			var(--border-width-thin),
 			(2 * 0.0625 * 1rem)
@@ -27,7 +27,7 @@
 			3 * (0.0625 * 1rem),
 			2 * (0.0625 * 1em)
 		);
-		--link-underline-offset: 0.15em;
+		--link-underline-offset: 0.16em;
 
 		@media (prefers-color-scheme: dark) {
 			--link-decoration-thickness: max(

@@ -69,6 +69,7 @@
 
 		--red: #ca3535;
 		--green: #0f7a52;
+		--fluorescent-green: #00ff19;
 
 		--orange: oklch(0.8 0.19 67.28);
 		--orange-tint-25: color-mix(in oklab, var(--orange), var(--white) 25%);
@@ -92,7 +93,9 @@
 		/* font */
 		--font-display:
 			"Jakob Semi-Condensed", "Adjusted Impact Fallback", system-ui, sans-serif;
-		--font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+		--font-sans:
+			"Source Sans 3", "Adjusted Arial Fallback", ui-sans-serif, system-ui,
+			sans-serif;
 		--font-mono: ui-monospace, monospace;
 		--font-weight-normal: 400;
 		--font-weight-medium: 500;
