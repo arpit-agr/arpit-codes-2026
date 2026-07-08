@@ -3,13 +3,6 @@
 		font-size: var(--step-1);
 	}
 
-	main {
-		> * + * {
-			border-block-start: var(--border-width-hairline) var(--border-style)
-				var(--border-color);
-		}
-	}
-
 	h1,
 	h2,
 	h3 {
