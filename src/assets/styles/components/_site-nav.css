@@ -21,11 +21,11 @@
 			&::after {
 				content: "";
 				position: absolute;
-				inset: 0;
+				inset: 0 calc(-1 / 2 * var(--cluster-gap));
 			}
 		}
 
-		[aria-current]::before,
+		/*[aria-current]::before,
 		[data-state="active"]::before {
 			content: "";
 			position: absolute;
@@ -33,6 +33,6 @@
 			inset-inline: 0;
 			background: var(--text-color);
 			block-size: var(--border-width-thick);
-		}
+		}*/
 	}
 }
