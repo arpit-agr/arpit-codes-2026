@@ -94,7 +94,7 @@
 					inset-block-end: calc(
 						var(--region-space) + var(--_vertical-separator-size)
 					);
-					block-size: var(--border-width-thick);
+					block-size: calc(2.5 * var(--border-width-thick));
 					inline-size: calc(var(--_vertical-separator-size) + 1px);
 					background: var(--body-bg-color);
 				}
@@ -128,6 +128,12 @@
 		}
 
 		#hero {
+			@media (width >= 80rem) {
+				> div {
+					position: relative;
+				}
+			}
+
 			h1 {
 				row-gap: var(--space-s);
 				font-size: var(--step-9-8);
@@ -167,16 +173,22 @@
 			picture,
 			img {
 				display: inline-block;
-
-				@media (width >= 80rem) {
-					display: none;
-				}
 			}
 
 			img {
 				block-size: 0.7em;
 				inline-size: auto;
-				outline: var(--border-width-thin) var(--border-style) currentColor;
+				border: var(--border-width-thick) var(--border-style) currentColor;
+
+				@media (width >= 80rem) {
+					position: absolute;
+					inset-block-start: calc(-1 * var(--wrapper-padding-inline));
+					inset-inline-start: 0;
+					scale: 0.75;
+					rotate: -10deg;
+					translate: -50% 0;
+					z-index: -1;
+				}
 			}
 
 			/* applied the sidebar layout manually */
