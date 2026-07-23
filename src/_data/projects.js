@@ -1,5 +1,21 @@
 export default [
 	{
+		title: "CSS Cascade",
+		description:
+			"A personal project to understand and explain how the CSS cascade resolves competing declarations.",
+		url: "https://cascade.arpit.codes/",
+		thumbnail: "/assets/img/projects/cascade-thumbnail.png",
+		type: "personal",
+	},
+	{
+		title: "Innuendo Studios",
+		description:
+			"A site for the video essayist Ian Danskin, including a searchable archive of his CuriousCat answers.",
+		url: "https://innuendo-studios.netlify.app/",
+		thumbnail: "/assets/img/projects/innuendo-studios-thumbnail.png",
+		type: "client",
+	},
+	{
 		title: "Ambco Hygiene Care",
 		description:
 			"A searchable product catalog for a professional cleaning tools and accessories company.",
@@ -30,13 +46,5 @@ export default [
 		url: "https://www.codesquadedu.com/",
 		thumbnail: "/assets/img/projects/codesquad-thumbnail.png",
 		type: "client",
-	},
-	{
-		title: "CSS Cascade",
-		description:
-			"A personal project to understand and explain how the CSS cascade resolves competing declarations.",
-		url: "https://cascade.arpit.codes/",
-		thumbnail: "/assets/img/projects/cascade-thumbnail.png",
-		type: "personal",
 	},
 ];
