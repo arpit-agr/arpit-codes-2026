@@ -179,7 +179,8 @@
 			img {
 				block-size: 0.7em;
 				inline-size: auto;
-				border: var(--border-width-thick) var(--border-style) currentColor;
+				border: min(0.025em, var(--border-width-thick)) var(--border-style)
+					currentColor;
 
 				@media (width >= 80rem) {
 					position: absolute;
