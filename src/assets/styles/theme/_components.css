@@ -1,11 +1,9 @@
 @layer theme.components {
 	:root {
 		--site-header-padding-block: var(--space-s);
-		--site-header-link-font-size: 0.8333em;
+		--site-header-link-font-size: 1em;
 		--site-header-link-font-weight: var(--font-weight-medium);
-		--site-header-height: calc(
-			calc(var(--step-1) * 0.8333) + (2 * var(--site-header-padding-block))
-		);
+		--site-header-height: calc(1rlh + (2 * var(--site-header-padding-block)));
 		--target-margin-block: calc(
 			var(--site-header-height) + var(--region-space)
 		);

@@ -13,6 +13,7 @@
 		}
 
 		@media (width >= 80rem) {
+			--site-header-link-font-size: 0.8333em;
 			--target-margin-block: var(--region-space);
 
 			.site-header {
