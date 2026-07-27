@@ -26,7 +26,7 @@ export default [
 	{
 		title: "CG21 EXIM",
 		description:
-			"A website for a global raw material sourcing company, featuring an interactive WebGL globe.",
+			"A website for a global raw material sourcing company, featuring an interactive globe.",
 		url: "https://cg21.in/",
 		thumbnail: "/assets/img/projects/cg21-thumbnail.png",
 		type: "client",
