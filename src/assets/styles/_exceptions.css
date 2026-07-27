@@ -72,10 +72,11 @@
 			@media (width >= 80rem) {
 				--_vertical-separator-size: 1.75rem;
 				position: relative;
+				isolation: isolate;
 
 				&::before,
 				&::after {
-					--_offset: -8.85em;
+					--_offset: -8.5em;
 
 					content: "";
 					position: absolute;
@@ -89,6 +90,7 @@
 					block-size: calc(100% - (2 * var(--region-space)));
 					inline-size: var(--_vertical-separator-size);
 					background: var(--text-color);
+					z-index: 1;
 				}
 
 				&::after {
@@ -98,32 +100,37 @@
 					block-size: calc(2.5 * var(--border-width-thick));
 					inline-size: calc(var(--_vertical-separator-size) + 1px);
 					background: var(--body-bg-color);
+					z-index: 2;
 				}
 
 				> * + * {
 					border-color: #0000;
 				}
 
-				h2[id] {
+				.desc-container > *,
+				.sidebar:has(> h2) + * {
 					position: relative;
+
+					&::before {
+						content: "";
+						position: absolute;
+						inset-block-start: 0;
+						inset-inline-end: calc(100% + var(--sidebar-column-gap));
+						inline-size: calc(0.8 * var(--_vertical-separator-size));
+						aspect-ratio: 1;
+						border-radius: 100vmax;
+						background-color: var(--body-bg-color);
+						translate: 0 -10%;
+						pointer-events: none;
+						z-index: 3;
+					}
+				}
+
+				h2[id] {
 					padding-inline-end: calc(
 						var(--sidebar-column-gap) + var(--_vertical-separator-size)
 					);
 					text-align: end;
-
-					&::after {
-						content: "";
-						position: absolute;
-						inset-block-start: 0;
-						inset-inline-end: 0;
-						block-size: var(--_vertical-separator-size);
-						aspect-ratio: 1;
-						border-radius: 100vmax;
-						background-color: var(--body-bg-color);
-						translate: 1px 0;
-						scale: 0.8;
-						pointer-events: none;
-					}
 				}
 			}
 		}
@@ -150,6 +157,7 @@
 					display: inline-flex;
 					align-items: center;
 					gap: calc(0.33 * var(--sidebar-column-gap));
+					text-shadow: -1px 0px var(--body-bg-color);
 
 					&::after {
 						content: "";
@@ -179,7 +187,7 @@
 			img {
 				block-size: 0.7em;
 				inline-size: auto;
-				border: min(0.025em, var(--border-width-thick)) var(--border-style)
+				border: min(0.025em, var(--border-width-medium)) var(--border-style)
 					currentColor;
 
 				@media (width >= 80rem) {
@@ -197,6 +205,10 @@
 			.desc-container {
 				--flow-space: var(--space-l);
 				--sidebar-gap: 0 var(--sidebar-column-gap);
+
+				@media (width >= 80rem) {
+					--flow-space: var(--region-space);
+				}
 
 				@supports not (text-box: trim-both cap alphabetic) {
 					--flow-space: 0px;
