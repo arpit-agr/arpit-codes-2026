@@ -393,7 +393,7 @@
 		}
 
 		.project-card {
-			grid-template-columns: minmax(0, 1fr) 35ch;
+			grid-template-columns: minmax(0, 1fr) 30ch;
 			padding: unset;
 			outline: none;
 		}
