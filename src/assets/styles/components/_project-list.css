@@ -184,13 +184,13 @@
 			row-gap: var(--space-xs);
 		}
 
-		@media (hover: hover) {
+		/*@media (hover: hover) {
 			&:has(a:hover) {
 				outline-width: var(--border-width-medium);
 				outline-color: currentColor;
 				outline-offset: calc(-1 * var(--border-width-medium));
 			}
-		}
+		}*/
 	}
 
 	.project-card-content {
@@ -225,6 +225,11 @@
 				position: absolute;
 				inset: 0;
 				z-index: 1;
+			}
+
+			&:hover::before {
+				background: rgba(18, 18, 18, 0.05);
+				background: oklch(from currentColor l c h / 0.05);
 			}
 		}
 	}
