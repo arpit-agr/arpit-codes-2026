@@ -1,0 +1,51 @@
+# Caching rules.
+#
+# Netlify's default for every response is `public, max-age=0, must-revalidate`
+# (revalidated against an ETag) and its CDN cache is purged on each deploy, so
+# only the paths that can safely outlive a deploy are overridden here. Rules do
+# not overlap: Netlify combines the headers of every matching rule, which would
+# emit two `Cache-Control` values for a path matched twice.
+
+# eleventy-img output. Filenames carry a content hash (`/img/<hash>-<width>.<ext>`),
+# so changed images are always new URLs — never revalidate.
+[[headers]]
+  for = "/img/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Self-hosted fonts. Not fingerprinted, so rename the file when a subset or
+# weight range changes — an edit in place stays cached for a year.
+[[headers]]
+  for = "/assets/fonts/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Stylesheets are fingerprinted at build time (`index.<hash>.css`, see
+# src/_data/css.js), so a changed stylesheet is always a new URL.
+[[headers]]
+  for = "/assets/styles/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Passthrough images (currently just the OG card). Stable names, but they change
+# rarely enough that a day of staleness beats a revalidation per visit.
+[[headers]]
+  for = "/assets/img/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/favicon.ico"
+
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
