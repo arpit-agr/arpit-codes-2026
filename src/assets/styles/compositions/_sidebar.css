@@ -8,6 +8,10 @@
 		width *and* the main content minimum width, they will stack
 		on top of each other
 
+		.with-ghost-sidebar is the same layout with an empty sidebar: a
+		decorative ::before takes the sidebar slot, so the content lines up
+		with the main column of a real sidebar elsewhere on the page.
+
 		CUSTOM PROPERTIES AND CONFIGURATION
 		--sidebar-gap: This defines the space
 		between the sidebar and main content.
@@ -17,19 +21,26 @@
 		--sidebar-wrap-at: The minimum size of the main content area
 	*/
 
-	:has(> .sidebar) {
+	:has(> .sidebar),
+	.with-ghost-sidebar {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--sidebar-gap, 1rem);
 		align-items: var(--sidebar-vertical-alignment, flex-start);
 	}
 
-	.sidebar {
+	.sidebar,
+	.with-ghost-sidebar::before {
 		flex-basis: var(--sidebar-content-min-width, 20rem);
 		flex-grow: 1;
 	}
 
-	:has(> .sidebar) > :not(.sidebar) {
+	.with-ghost-sidebar::before {
+		content: "";
+	}
+
+	:has(> .sidebar) > :not(.sidebar),
+	.with-ghost-sidebar > * {
 		flex-basis: 0;
 		flex-grow: 99999;
 		min-inline-size: var(--sidebar-wrap-at, 50%);

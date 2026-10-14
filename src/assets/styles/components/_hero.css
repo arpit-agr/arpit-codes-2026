@@ -73,7 +73,7 @@
 		}
 	}
 
-	/* applied the sidebar layout manually */
+	/* no row gap: when the ghost sidebar wraps, the empty slot shouldn't add space */
 	.hero-intro {
 		--flow-space: var(--space-l);
 		--sidebar-gap: 0 var(--sidebar-column-gap);
