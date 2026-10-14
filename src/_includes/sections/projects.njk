@@ -1,0 +1,15 @@
+{% from "components/section-content.njk" import sectionContent %}
+
+<section class="flow region">
+	{% call sectionContent("projects", "Projects") %}
+		<p class="text-box-trim-both text-balance">
+			A selection of websites I designed and built. Each one shaped by its
+			purpose and the people it serves.
+		</p>
+	{% endcall %}
+	<div class="project-list-container wrapper">
+		<div class="project-list-scrollport with-ghost-sidebar">
+			<div>{% include 'components/project-list.njk' %}</div>
+		</div>
+	</div>
+</section>

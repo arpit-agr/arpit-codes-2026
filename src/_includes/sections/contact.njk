@@ -1,0 +1,14 @@
+{% from "components/section-content.njk" import sectionContent %}
+
+<section class="region">
+	{% call sectionContent("contact", "Get in touch", "flow text-box-trim-both") %}
+		<p class="text-balance">
+			If you're hiring, have a question, or just want to say hello, I'd like to
+			hear from you.
+		</p>
+		<a class="heading-3 text-box-trim-both" href="mailto:hello@arpit.codes">
+			<span>hello@arpit.codes</span>
+		</a>
+		{% include 'components/socials.njk' %}
+	{% endcall %}
+</section>

@@ -1,0 +1,24 @@
+{#
+	The content row shared by every titled section: the h2 in the sidebar
+	column, the caller's markup in the main column.
+
+	The <section> stays with the caller, so a section can add content outside
+	the wrapper (e.g. the full-bleed project list).
+
+	Usage:
+	{% from "components/section-content.njk" import sectionContent %}
+	{% call sectionContent("about", "About", "flow text-box-trim-both") %}
+		<p>…</p>
+	{% endcall %}
+#}
+
+{% macro sectionContent(id, heading, contentClass) %}
+	<div class="wrapper">
+		<div class="sidebar">
+			<h2 id="{{ id }}">{{ heading }}</h2>
+		</div>
+		<div {% if contentClass %}class="{{ contentClass }}"{% endif %}>
+			{{ caller() }}
+		</div>
+	</div>
+{% endmacro %}

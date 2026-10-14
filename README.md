@@ -13,9 +13,12 @@ Personal portfolio. Eleventy 3 static site, Lightning CSS for bundling.
 
 ## Layout
 
-- `src/index.njk` — the only page; sections are inline (hero, about, projects, contact)
+- `src/index.njk` — the only page; just includes the sections in order
 - `src/_includes/base.njk` — page shell, fonts, meta
-- `src/_includes/components/` — reusable Nunjucks partials
+- `src/_includes/sections/` — the homepage sections (hero, about, projects, contact),
+  each used once; edit the page copy here
+- `src/_includes/components/` — reusable Nunjucks partials, plus the `sectionContent`
+  macro (`section-content.njk`) that renders a section's sidebar heading and content
 - `src/_data/` — content (`projects.js`, `socials.js`); edit here to update the site.
   `css.js` is not content — it's the stylesheet build, see Cache-busting below
 - `src/assets/styles/` — see CSS section below
