@@ -3,11 +3,6 @@
 		/*--flow-space: var(--region-space);*/
 		container-type: inline-size;
 		isolation: isolate;
-
-		/* applied the wrapper manually */
-		margin-inline: auto;
-		max-inline-size: var(--wrapper-max-width, 80rem);
-		padding-inline: var(--wrapper-padding-inline, 1lh);
 	}
 
 	.project-list {
@@ -275,6 +270,8 @@
 	@media screen and (width < 54rem) {
 		.project-list-container {
 			--flow-space: 0px;
+
+			/* undo wrapper padding */
 			padding-inline: unset;
 		}
 
