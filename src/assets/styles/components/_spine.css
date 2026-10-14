@@ -1,0 +1,92 @@
+@layer components {
+	/*
+		SPINE
+		What separates the page's sections, in two forms:
+		- below 80rem: a hairline between each section
+		- from 80rem: the stem of the T in the hero's "Arpit", carried on down
+		  the sidebar gutter as a thick bar, with a dot where each section's
+		  body starts and a break just before its foot
+
+		Hooks: .section-heading (the sidebar h2, set flush against the spine)
+		and .section-body (the content column, which gets the dot), both
+		rendered by the sectionContent macro.
+
+		CUSTOM PROPERTIES AND CONFIGURATION
+		--spine-optical-offset: nudge that lines the bar up with the T's stem;
+		.hero-first-name reads it to shift the name by the same amount
+	*/
+
+	.spine {
+		> * + * {
+			border-block-start: var(--border-width-hairline) var(--border-style)
+				var(--border-color);
+		}
+
+		@media (width >= 80rem) {
+			--_spine-width: 1.875rem;
+			--spine-optical-offset: 3px;
+			position: relative;
+			isolation: isolate;
+
+			&::before,
+			&::after {
+				--_offset: -8.5em;
+
+				content: "";
+				position: absolute;
+				inset-inline-start: 50%;
+				translate: calc(-50% + var(--_offset) - var(--spine-optical-offset)) 0;
+				pointer-events: none;
+			}
+
+			/* the bar */
+			&::before {
+				inset-block-start: var(--region-space);
+				block-size: calc(100% - (2 * var(--region-space)));
+				inline-size: var(--_spine-width);
+				background: var(--text-color);
+				z-index: 1;
+			}
+
+			/* the break above the bar's foot */
+			&::after {
+				inset-block-end: calc(var(--region-space) + var(--_spine-width));
+				block-size: calc(2.5 * var(--border-width-thick));
+				inline-size: calc(var(--_spine-width) + 1px);
+				background: var(--body-bg-color);
+				z-index: 2;
+			}
+
+			> * + * {
+				border-color: #0000;
+			}
+
+			/* the dot */
+			.section-body {
+				position: relative;
+
+				&::before {
+					content: "";
+					position: absolute;
+					inset-block-start: 0;
+					inset-inline-end: calc(100% + var(--sidebar-column-gap));
+					inline-size: var(--_spine-width);
+					aspect-ratio: 1;
+					border-radius: 100vmax;
+					background-color: var(--body-bg-color);
+					scale: 0.8;
+					translate: calc(var(--spine-optical-offset) / 2) -20%;
+					pointer-events: none;
+					z-index: 3;
+				}
+			}
+
+			.section-heading {
+				padding-inline-end: calc(
+					var(--sidebar-column-gap) + var(--_spine-width)
+				);
+				text-align: end;
+			}
+		}
+	}
+}

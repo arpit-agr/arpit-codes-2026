@@ -121,12 +121,12 @@ abbr[title]::after {
 }
 
 /* Homepage layout */
-.homepage main > * {
+.spine > * {
 	break-inside: avoid-page;
 }
 
 /* Hero: keep the photo as a small portrait, drop the decorative trailing rule */
-#hero h1 .first-name::after {
+.hero-first-name::after {
 	display: none;
 }
 
@@ -155,7 +155,7 @@ abbr[title]::after {
 }
 
 /* Limit the printed portfolio so it doesn't sprawl past a second page */
-.homepage #projects li:nth-child(n + 5) {
+.project-list > li:nth-child(n + 5) {
 	display: none;
 }
 

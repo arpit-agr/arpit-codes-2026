@@ -1,0 +1,89 @@
+@layer components {
+	.hero {
+		@media (width >= 80rem) {
+			> .wrapper {
+				position: relative;
+			}
+		}
+
+		h1 {
+			row-gap: var(--space-s);
+			font-size: var(--step-9-8);
+			letter-spacing: -0.00625em;
+
+			@media (width >= 80rem) {
+				font-size: var(--step-9);
+				letter-spacing: -0.008em;
+			}
+		}
+
+		picture,
+		img {
+			display: inline-block;
+		}
+
+		img {
+			block-size: 0.7em;
+			inline-size: auto;
+			border: min(0.025em, var(--border-width-medium)) var(--border-style)
+				currentColor;
+
+			@media (width >= 80rem) {
+				position: absolute;
+				inset-block-start: calc(-1 * var(--wrapper-padding-inline));
+				inset-inline-start: 0;
+				scale: 0.75;
+				rotate: -10deg;
+				translate: -50% 0;
+				z-index: -1;
+			}
+		}
+	}
+
+	.hero-first-name {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: calc(0.33 * var(--sidebar-column-gap));
+		text-shadow: -1px 0px var(--body-bg-color);
+
+		&::after {
+			content: "";
+			flex-grow: 999;
+			block-size: 0.125em;
+			background: currentColor;
+			pointer-events: none;
+		}
+
+		@media (width >= 80rem) {
+			&::after {
+				display: none;
+			}
+
+			/* line the T's stem up with the spine, which continues it down the page */
+			> span {
+				translate: calc(-1 * var(--spine-optical-offset, 0px)) 0;
+			}
+		}
+	}
+
+	.hero-last-name {
+		@media (width >= 80rem) {
+			text-align: end;
+		}
+	}
+
+	/* applied the sidebar layout manually */
+	.hero-intro {
+		--flow-space: var(--space-l);
+		--sidebar-gap: 0 var(--sidebar-column-gap);
+
+		@media (width >= 80rem) {
+			--flow-space: var(--region-space);
+		}
+
+		@supports not (text-box: trim-both cap alphabetic) {
+			--flow-space: 0px;
+		}
+	}
+}

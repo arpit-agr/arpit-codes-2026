@@ -8,7 +8,11 @@
 		--cluster-gap: var(--space-s);
 		--grid-gap: var(--space-s);
 		--repel-gap: var(--space-s);
-		--sidebar-gap: var(--space-s);
+		--sidebar-row-gap: var(--space-l);
+		--sidebar-column-gap: var(--space-m);
+		--sidebar-gap: var(--sidebar-row-gap) var(--sidebar-column-gap);
+		--sidebar-content-min-width: 19rem;
+		--sidebar-wrap-at: 60%;
 		--stack-gap: var(--space-s);
 		--switcher-gap: var(--space-s);
 

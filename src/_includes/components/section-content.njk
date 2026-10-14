@@ -5,6 +5,8 @@
 	The <section> stays with the caller, so a section can add content outside
 	the wrapper (e.g. the full-bleed project list).
 
+	.section-heading and .section-body are the hooks .spine styles.
+
 	Usage:
 	{% from "components/section-content.njk" import sectionContent %}
 	{% call sectionContent("about", "About", "flow text-box-trim-both") %}
@@ -15,9 +17,9 @@
 {% macro sectionContent(id, heading, contentClass) %}
 	<div class="wrapper">
 		<div class="sidebar">
-			<h2 id="{{ id }}">{{ heading }}</h2>
+			<h2 class="section-heading" id="{{ id }}">{{ heading }}</h2>
 		</div>
-		<div {% if contentClass %}class="{{ contentClass }}"{% endif %}>
+		<div class="{{ ('section-body ' + (contentClass or '')) | trim }}">
 			{{ caller() }}
 		</div>
 	</div>
