@@ -46,6 +46,10 @@
 				inline-size: var(--_spine-width);
 				background: var(--text-color);
 				z-index: 1;
+
+				@media (forced-colors: active) {
+					background: canvasText;
+				}
 			}
 
 			/* the break above the bar's foot */

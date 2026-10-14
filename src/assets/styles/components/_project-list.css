@@ -159,6 +159,10 @@
 			@media (prefers-color-scheme: dark) {
 				-webkit-font-smoothing: auto;
 			}
+
+			@media (forced-colors: active) {
+				background: canvasText;
+			}
 		}
 	}
 
