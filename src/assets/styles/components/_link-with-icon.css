@@ -1,9 +1,11 @@
-.link-with-icon {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.25ch;
+@layer components {
+	.link-with-icon {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25ch;
 
-	svg path {
-		fill: currentColor;
+		svg path {
+			fill: currentColor;
+		}
 	}
 }
