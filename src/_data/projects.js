@@ -16,6 +16,14 @@ export default [
 		type: "client",
 	},
 	{
+		title: "SustEarn",
+		description:
+			"A marketing site for a sustainability app, with device mockups I designed from scratch.",
+		url: "https://slae.app/",
+		thumbnail: "/assets/img/projects/sustearn-thumbnail.png",
+		type: "client",
+	},
+	{
 		title: "Ambco Hygiene Care",
 		description:
 			"A searchable product catalog for a professional cleaning tools and accessories company.",
@@ -31,20 +39,12 @@ export default [
 		thumbnail: "/assets/img/projects/cg21-thumbnail.png",
 		type: "client",
 	},
-	{
-		title: "SustEarn",
-		description:
-			"A marketing site for a sustainability app, with device mockups I designed from scratch.",
-		url: "https://slae.app/",
-		thumbnail: "/assets/img/projects/sustearn-thumbnail.png",
-		type: "client",
-	},
-	{
-		title: "Code Squad",
-		description:
-			"A learning platform's website with scroll-triggered animations.",
-		url: "https://www.codesquadedu.com/",
-		thumbnail: "/assets/img/projects/codesquad-thumbnail.png",
-		type: "client",
-	},
+	// {
+	// 	title: "Code Squad",
+	// 	description:
+	// 		"A learning platform's website with scroll-triggered animations.",
+	// 	url: "https://www.codesquadedu.com/",
+	// 	thumbnail: "/assets/img/projects/codesquad-thumbnail.png",
+	// 	type: "client",
+	// },
 ];
