@@ -10,7 +10,7 @@ export default [
 	{
 		title: "Innuendo Studios",
 		description:
-			"A site for the video essayist Ian Danskin, including a searchable archive of his CuriousCat answers.",
+			"A self-initiated archive of 15,094 CuriousCat answers by video essayist Ian Danskin, built before the platform shut down.",
 		url: "https://innuendo-studios.netlify.app/",
 		thumbnail: "/assets/img/projects/innuendo-studios-thumbnail.png",
 		type: "client",
