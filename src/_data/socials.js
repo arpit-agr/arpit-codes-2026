@@ -14,11 +14,11 @@ export default [
 		url: "https://www.linkedin.com/in/arpit-codes/",
 		icon: "linkedin",
 	},
-	// {
-	// 	name: "GitHub",
-	// 	url: "https://github.com/arpit-agr",
-	// 	icon: "github",
-	// },
+	{
+		name: "GitHub",
+		url: "https://github.com/arpit-agr",
+		icon: "github",
+	},
 	// {
 	// 	name: "CodePen",
 	// 	url: "https://codepen.io/arpit-codes",
